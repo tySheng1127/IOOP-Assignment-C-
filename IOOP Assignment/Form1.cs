@@ -12,8 +12,10 @@ namespace IOOP_Assignment
 {
     public partial class LoginScreen : Form
     {
+        public CurrentUser cu;
         public LoginScreen()
         {
+            cu = new CurrentUser();
             InitializeComponent();
             txtPassword.PasswordChar = '*';
         }
@@ -30,12 +32,11 @@ namespace IOOP_Assignment
             }
             else
             {
-                // if username and password matches the database
-                // direct them to new form
-                    //if supervisor -> supervisor form
-                    //else -> cashier form
+                cu.userName = txtUsername.Text;
+                cu.passWord = txtPassword.Text;
+
                 this.Hide();
-                CashierForm cashierForm = new CashierForm(this);
+                CashierForm cashierForm = new CashierForm(cu);
                 cashierForm.ShowDialog();
             }
 

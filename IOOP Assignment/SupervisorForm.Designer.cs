@@ -95,6 +95,7 @@
             this.btn_store.TabIndex = 34;
             this.btn_store.Text = "Current Stock";
             this.btn_store.UseVisualStyleBackColor = true;
+            this.btn_store.Click += new System.EventHandler(this.btn_store_Click);
             // 
             // button1
             // 

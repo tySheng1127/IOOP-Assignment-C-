@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btn_pen = new System.Windows.Forms.Button();
             this.btn_CD = new System.Windows.Forms.Button();
@@ -38,34 +39,40 @@
             this.btn_Eraser = new System.Windows.Forms.Button();
             this.btn_SDcard = new System.Windows.Forms.Button();
             this.btn_Candy = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rtbTotal = new System.Windows.Forms.RichTextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btn_Enter = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_colour = new System.Windows.Forms.Button();
             this.btn_paper = new System.Windows.Forms.Button();
             this.btn_coffe = new System.Windows.Forms.Button();
             this.btn_sandwich = new System.Windows.Forms.Button();
-            this.Btn_milk = new System.Windows.Forms.Button();
+            this.btn_milk = new System.Windows.Forms.Button();
             this.btn_drink = new System.Windows.Forms.Button();
             this.btn_flower = new System.Windows.Forms.Button();
             this.btn_OJ = new System.Windows.Forms.Button();
             this.btn_Panadol = new System.Windows.Forms.Button();
             this.TimeNow = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.rtbDetails = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPrepaid = new System.Windows.Forms.TextBox();
+            this.txtChange = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.cashierDataSet = new IOOP_Assignment.CashierDataSet();
+            this.cashierDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lbItem = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btn_Changes = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.cashierDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cashierDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -136,6 +143,7 @@
             this.btn_Biscuit.TabIndex = 6;
             this.btn_Biscuit.Text = "Biscuit";
             this.btn_Biscuit.UseVisualStyleBackColor = true;
+            this.btn_Biscuit.Click += new System.EventHandler(this.btn_Biscuit_Click);
             // 
             // btn_Eraser
             // 
@@ -165,32 +173,33 @@
             this.btn_Candy.TabIndex = 9;
             this.btn_Candy.Text = "Candy";
             this.btn_Candy.UseVisualStyleBackColor = true;
+            this.btn_Candy.Click += new System.EventHandler(this.btn_Candy_Click);
             // 
-            // richTextBox1
+            // rtbTotal
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(317, 36);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(337, 96);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "RM 2,000,000";
+            this.rtbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbTotal.Location = new System.Drawing.Point(363, 36);
+            this.rtbTotal.Name = "rtbTotal";
+            this.rtbTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rtbTotal.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtbTotal.Size = new System.Drawing.Size(337, 96);
+            this.rtbTotal.TabIndex = 10;
+            this.rtbTotal.Text = "RM 2,000,000";
             // 
-            // textBox1
+            // txtQuantity
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(274, 272);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 31);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "500";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(431, 272);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(104, 31);
+            this.txtQuantity.TabIndex = 11;
+            this.txtQuantity.Text = "500";
+            this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 256);
+            this.label1.Location = new System.Drawing.Point(488, 257);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 12;
@@ -199,58 +208,62 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 10);
+            this.label2.Location = new System.Drawing.Point(360, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Total";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // button10
+            // btn_Enter
             // 
-            this.button10.Location = new System.Drawing.Point(385, 309);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(103, 177);
-            this.button10.TabIndex = 14;
-            this.button10.Text = "Enter";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btn_Enter.Location = new System.Drawing.Point(431, 309);
+            this.btn_Enter.Name = "btn_Enter";
+            this.btn_Enter.Size = new System.Drawing.Size(103, 177);
+            this.btn_Enter.TabIndex = 14;
+            this.btn_Enter.Text = "Enter";
+            this.btn_Enter.UseVisualStyleBackColor = true;
+            this.btn_Enter.Click += new System.EventHandler(this.btn_Enter_Click);
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(506, 279);
+            this.button11.Location = new System.Drawing.Point(552, 279);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(148, 207);
             this.button11.TabIndex = 15;
             this.button11.Text = "Generate Receipt";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btn_Remove
             // 
-            this.button13.BackColor = System.Drawing.Color.Red;
-            this.button13.Location = new System.Drawing.Point(99, 101);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(113, 38);
-            this.button13.TabIndex = 17;
-            this.button13.Text = "Remove Item";
-            this.button13.UseVisualStyleBackColor = false;
+            this.btn_Remove.BackColor = System.Drawing.Color.Red;
+            this.btn_Remove.Location = new System.Drawing.Point(99, 101);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Size = new System.Drawing.Size(113, 38);
+            this.btn_Remove.TabIndex = 17;
+            this.btn_Remove.Text = "Remove Item";
+            this.btn_Remove.UseVisualStyleBackColor = false;
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
             // 
             // btn_colour
             // 
-            this.btn_colour.Location = new System.Drawing.Point(317, 431);
+            this.btn_colour.Location = new System.Drawing.Point(363, 431);
             this.btn_colour.Name = "btn_colour";
             this.btn_colour.Size = new System.Drawing.Size(55, 55);
             this.btn_colour.TabIndex = 26;
             this.btn_colour.Text = "Colour Paper";
             this.btn_colour.UseVisualStyleBackColor = true;
+            this.btn_colour.Click += new System.EventHandler(this.btn_colour_Click);
             // 
             // btn_paper
             // 
-            this.btn_paper.Location = new System.Drawing.Point(256, 431);
+            this.btn_paper.Location = new System.Drawing.Point(302, 431);
             this.btn_paper.Name = "btn_paper";
             this.btn_paper.Size = new System.Drawing.Size(55, 55);
             this.btn_paper.TabIndex = 25;
             this.btn_paper.Text = "A4 Paper";
             this.btn_paper.UseVisualStyleBackColor = true;
+            this.btn_paper.Click += new System.EventHandler(this.btn_paper_Click);
             // 
             // btn_coffe
             // 
@@ -260,24 +273,27 @@
             this.btn_coffe.TabIndex = 24;
             this.btn_coffe.Text = "3 in 1 Coffee";
             this.btn_coffe.UseVisualStyleBackColor = true;
+            this.btn_coffe.Click += new System.EventHandler(this.btn_coffe_Click);
             // 
             // btn_sandwich
             // 
-            this.btn_sandwich.Location = new System.Drawing.Point(317, 370);
+            this.btn_sandwich.Location = new System.Drawing.Point(363, 370);
             this.btn_sandwich.Name = "btn_sandwich";
             this.btn_sandwich.Size = new System.Drawing.Size(55, 55);
             this.btn_sandwich.TabIndex = 23;
             this.btn_sandwich.Text = "Sandwich";
             this.btn_sandwich.UseVisualStyleBackColor = true;
+            this.btn_sandwich.Click += new System.EventHandler(this.btn_sandwich_Click);
             // 
-            // Btn_milk
+            // btn_milk
             // 
-            this.Btn_milk.Location = new System.Drawing.Point(256, 370);
-            this.Btn_milk.Name = "Btn_milk";
-            this.Btn_milk.Size = new System.Drawing.Size(55, 55);
-            this.Btn_milk.TabIndex = 22;
-            this.Btn_milk.Text = "Milk";
-            this.Btn_milk.UseVisualStyleBackColor = true;
+            this.btn_milk.Location = new System.Drawing.Point(302, 370);
+            this.btn_milk.Name = "btn_milk";
+            this.btn_milk.Size = new System.Drawing.Size(55, 55);
+            this.btn_milk.TabIndex = 22;
+            this.btn_milk.Text = "Milk";
+            this.btn_milk.UseVisualStyleBackColor = true;
+            this.btn_milk.Click += new System.EventHandler(this.btn_milk_Click);
             // 
             // btn_drink
             // 
@@ -287,24 +303,27 @@
             this.btn_drink.TabIndex = 21;
             this.btn_drink.Text = "Softdrink";
             this.btn_drink.UseVisualStyleBackColor = true;
+            this.btn_drink.Click += new System.EventHandler(this.btn_drink_Click);
             // 
             // btn_flower
             // 
-            this.btn_flower.Location = new System.Drawing.Point(317, 309);
+            this.btn_flower.Location = new System.Drawing.Point(363, 309);
             this.btn_flower.Name = "btn_flower";
             this.btn_flower.Size = new System.Drawing.Size(55, 55);
             this.btn_flower.TabIndex = 20;
             this.btn_flower.Text = "Flower";
             this.btn_flower.UseVisualStyleBackColor = true;
+            this.btn_flower.Click += new System.EventHandler(this.btn_flower_Click);
             // 
             // btn_OJ
             // 
-            this.btn_OJ.Location = new System.Drawing.Point(256, 309);
+            this.btn_OJ.Location = new System.Drawing.Point(302, 309);
             this.btn_OJ.Name = "btn_OJ";
             this.btn_OJ.Size = new System.Drawing.Size(55, 55);
             this.btn_OJ.TabIndex = 19;
             this.btn_OJ.Text = "Orange Juice";
             this.btn_OJ.UseVisualStyleBackColor = true;
+            this.btn_OJ.Click += new System.EventHandler(this.btn_OJ_Click);
             // 
             // btn_Panadol
             // 
@@ -314,6 +333,7 @@
             this.btn_Panadol.TabIndex = 18;
             this.btn_Panadol.Text = "Panadol";
             this.btn_Panadol.UseVisualStyleBackColor = true;
+            this.btn_Panadol.Click += new System.EventHandler(this.btn_Panadol_Click);
             // 
             // TimeNow
             // 
@@ -325,22 +345,15 @@
             this.TimeNow.TabIndex = 27;
             this.TimeNow.Text = "2017";
             // 
-            // richTextBox2
+            // rtbDetails
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(18, 41);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(250, 54);
-            this.richTextBox2.TabIndex = 28;
-            this.richTextBox2.Text = "Logged in as: Koksin\nLogged in since: 420\nEmployee ID: 420blazeit\n";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(18, 160);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(250, 134);
-            this.listBox1.TabIndex = 29;
+            this.rtbDetails.Location = new System.Drawing.Point(18, 41);
+            this.rtbDetails.Name = "rtbDetails";
+            this.rtbDetails.ReadOnly = true;
+            this.rtbDetails.Size = new System.Drawing.Size(250, 54);
+            this.rtbDetails.TabIndex = 28;
+            this.rtbDetails.Text = "Logged in as: Koksin\nLogged in since: 420\nEmployee ID: 420blazeit\n";
+            this.rtbDetails.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // label4
             // 
@@ -351,24 +364,24 @@
             this.label4.TabIndex = 30;
             this.label4.Text = "Items:";
             // 
-            // textBox2
+            // txtPrepaid
             // 
-            this.textBox2.Location = new System.Drawing.Point(316, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(138, 20);
-            this.textBox2.TabIndex = 31;
+            this.txtPrepaid.Location = new System.Drawing.Point(456, 160);
+            this.txtPrepaid.Name = "txtPrepaid";
+            this.txtPrepaid.Size = new System.Drawing.Size(87, 20);
+            this.txtPrepaid.TabIndex = 31;
             // 
-            // textBox3
+            // txtChange
             // 
-            this.textBox3.Location = new System.Drawing.Point(516, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 20);
-            this.textBox3.TabIndex = 32;
+            this.txtChange.Location = new System.Drawing.Point(613, 160);
+            this.txtChange.Name = "txtChange";
+            this.txtChange.Size = new System.Drawing.Size(87, 20);
+            this.txtChange.TabIndex = 32;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(314, 144);
+            this.label5.Location = new System.Drawing.Point(453, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 33;
@@ -377,7 +390,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(513, 140);
+            this.label6.Location = new System.Drawing.Point(652, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 34;
@@ -385,18 +398,18 @@
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(316, 198);
+            this.button22.Location = new System.Drawing.Point(456, 208);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(102, 55);
+            this.button22.Size = new System.Drawing.Size(70, 46);
             this.button22.TabIndex = 35;
             this.button22.Text = "Transaction List";
             this.button22.UseVisualStyleBackColor = true;
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(423, 198);
+            this.button23.Location = new System.Drawing.Point(532, 208);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(113, 55);
+            this.button23.Size = new System.Drawing.Size(81, 46);
             this.button23.TabIndex = 36;
             this.button23.Text = "Previous Transaction";
             this.button23.UseVisualStyleBackColor = true;
@@ -404,56 +417,88 @@
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(541, 198);
+            this.button24.Location = new System.Drawing.Point(619, 208);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(113, 55);
+            this.button24.Size = new System.Drawing.Size(81, 46);
             this.button24.TabIndex = 37;
             this.button24.Text = "Cashier Report";
             this.button24.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // cashierDataSet
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(473, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 20);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "->";
+            this.cashierDataSet.DataSetName = "CashierDataSet";
+            this.cashierDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cashierDataSetBindingSource
+            // 
+            this.cashierDataSetBindingSource.DataSource = this.cashierDataSet;
+            this.cashierDataSetBindingSource.Position = 0;
+            // 
+            // lbItem
+            // 
+            this.lbItem.FormattingEnabled = true;
+            this.lbItem.Location = new System.Drawing.Point(18, 173);
+            this.lbItem.Name = "lbItem";
+            this.lbItem.Size = new System.Drawing.Size(400, 121);
+            this.lbItem.TabIndex = 39;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(17, 154);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(401, 20);
+            this.textBox1.TabIndex = 40;
+            this.textBox1.Text = "Number \t\tDescription \t\tQuantity\tPrice";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btn_Changes
+            // 
+            this.btn_Changes.Location = new System.Drawing.Point(562, 160);
+            this.btn_Changes.Name = "btn_Changes";
+            this.btn_Changes.Size = new System.Drawing.Size(31, 23);
+            this.btn_Changes.TabIndex = 41;
+            this.btn_Changes.Text = "->";
+            this.btn_Changes.UseVisualStyleBackColor = true;
+            this.btn_Changes.Click += new System.EventHandler(this.btn_Changes_Click);
             // 
             // CashierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 496);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(712, 496);
+            this.Controls.Add(this.btn_Changes);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lbItem);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.button22);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtChange);
+            this.Controls.Add(this.txtPrepaid);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.rtbDetails);
             this.Controls.Add(this.TimeNow);
             this.Controls.Add(this.btn_colour);
             this.Controls.Add(this.btn_paper);
             this.Controls.Add(this.btn_coffe);
             this.Controls.Add(this.btn_sandwich);
-            this.Controls.Add(this.Btn_milk);
+            this.Controls.Add(this.btn_milk);
             this.Controls.Add(this.btn_drink);
             this.Controls.Add(this.btn_flower);
             this.Controls.Add(this.btn_OJ);
             this.Controls.Add(this.btn_Panadol);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.btn_Remove);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btn_Enter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtQuantity);
+            this.Controls.Add(this.rtbTotal);
             this.Controls.Add(this.btn_Candy);
             this.Controls.Add(this.btn_SDcard);
             this.Controls.Add(this.btn_Eraser);
@@ -465,7 +510,10 @@
             this.Controls.Add(this.btn_pen);
             this.Controls.Add(this.btnLogout);
             this.Name = "CashierForm";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "CashierForm";
+            ((System.ComponentModel.ISupportInitialize)(this.cashierDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cashierDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,33 +531,37 @@
         private System.Windows.Forms.Button btn_Eraser;
         private System.Windows.Forms.Button btn_SDcard;
         private System.Windows.Forms.Button btn_Candy;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox rtbTotal;
+        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btn_Enter;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_colour;
         private System.Windows.Forms.Button btn_paper;
         private System.Windows.Forms.Button btn_coffe;
         private System.Windows.Forms.Button btn_sandwich;
-        private System.Windows.Forms.Button Btn_milk;
+        private System.Windows.Forms.Button btn_milk;
         private System.Windows.Forms.Button btn_drink;
         private System.Windows.Forms.Button btn_flower;
         private System.Windows.Forms.Button btn_OJ;
         private System.Windows.Forms.Button btn_Panadol;
         private System.Windows.Forms.Label TimeNow;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RichTextBox rtbDetails;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPrepaid;
+        private System.Windows.Forms.TextBox txtChange;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Label label7;
+        private CashierDataSet cashierDataSet;
+        private System.Windows.Forms.BindingSource cashierDataSetBindingSource;
+        private System.Windows.Forms.ListBox lbItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btn_Changes;
     }
 }

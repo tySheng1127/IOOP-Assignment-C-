@@ -29,5 +29,10 @@ namespace IOOP_Assignment
             loginScreen.ShowForm();
             this.Dispose();
         }
+
+        private void btn_store_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
