@@ -12,11 +12,17 @@ namespace IOOP_Assignment
 {
     public partial class SupervisorForm : Form
     {
-        LoginScreen loginScreen = new LoginScreen();
-        public SupervisorForm(LoginScreen LoginS)
+
+        
+        CurrentUser cu = new CurrentUser();
+
+        public SupervisorForm(CurrentUser currentuser)
         {
             InitializeComponent();
-            loginScreen = LoginS; 
+            cu = currentuser;
+            rtb_detail.Text = cu.userName;
+            DateNow.Text = DateTime.Now.Date.ToString("yyyy/MM/dd");
+
         }
 
         private void SupervisorForm_Load(object sender, EventArgs e)
@@ -26,12 +32,22 @@ namespace IOOP_Assignment
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            loginScreen.ShowForm();
             this.Dispose();
+            LoginScreen ls = new LoginScreen();
+            ls.ShowForm();
         }
 
         private void btn_store_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btm_switchCashier_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CashierForm cashform = new CashierForm(cu);
+            cashform.ShowDialog();
+  
 
         }
     }

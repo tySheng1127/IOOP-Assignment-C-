@@ -32,6 +32,11 @@ namespace IOOP_Assignment
           
         }
 
+        public CashierForm()
+        {
+            // TODO: Complete member initialization
+        }
+
  
         private void btnLogout_Click(object sender, EventArgs e)
         {

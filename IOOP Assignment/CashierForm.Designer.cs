@@ -64,7 +64,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
+            this.btn_CReport = new System.Windows.Forms.Button();
             this.cashierDataSet = new IOOP_Assignment.CashierDataSet();
             this.cashierDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbItem = new System.Windows.Forms.ListBox();
@@ -415,14 +415,15 @@
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
-            // button24
+            // btn_CReport
             // 
-            this.button24.Location = new System.Drawing.Point(619, 208);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(81, 46);
-            this.button24.TabIndex = 37;
-            this.button24.Text = "Cashier Report";
-            this.button24.UseVisualStyleBackColor = true;
+            this.btn_CReport.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_CReport.Location = new System.Drawing.Point(619, 208);
+            this.btn_CReport.Name = "btn_CReport";
+            this.btn_CReport.Size = new System.Drawing.Size(81, 46);
+            this.btn_CReport.TabIndex = 37;
+            this.btn_CReport.Text = "Cashier Report";
+            this.btn_CReport.UseVisualStyleBackColor = true;
             // 
             // cashierDataSet
             // 
@@ -473,7 +474,7 @@
             this.Controls.Add(this.btn_Changes);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbItem);
-            this.Controls.Add(this.button24);
+            this.Controls.Add(this.btn_CReport);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.button22);
             this.Controls.Add(this.label6);
@@ -556,7 +557,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button btn_CReport;
         private CashierDataSet cashierDataSet;
         private System.Windows.Forms.BindingSource cashierDataSetBindingSource;
         private System.Windows.Forms.ListBox lbItem;

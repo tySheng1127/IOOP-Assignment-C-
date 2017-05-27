@@ -27,14 +27,18 @@ namespace IOOP_Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            cu.userName = txtUsername.Text;
+            cu.passWord = txtPassword.Text;
             if (txtPassword.Text == "" || txtUsername.Text == "" ) {
                 MessageBox.Show("Please fill in the username and password.", "Login Error");
             }
+            else if(txtUsername.Text=="admin" || txtUsername.Text=="admin") {
+                this.Hide();
+                SupervisorForm sf = new SupervisorForm(cu);
+                sf.ShowDialog();
+            }
             else
             {
-                cu.userName = txtUsername.Text;
-                cu.passWord = txtPassword.Text;
-
                 this.Hide();
                 CashierForm cashierForm = new CashierForm(cu);
                 cashierForm.ShowDialog();

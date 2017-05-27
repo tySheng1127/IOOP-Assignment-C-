@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.DateNow = new System.Windows.Forms.Label();
             this.btn_Logout = new System.Windows.Forms.Button();
             this.btm_switchCashier = new System.Windows.Forms.Button();
             this.btn_EmployeeList = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rtb_detail = new System.Windows.Forms.RichTextBox();
             this.btn_store = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Transacition = new System.Windows.Forms.Button();
@@ -40,15 +40,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label3
+            // DateNow
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(233, 25);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "11/11/2017. 4:20:20pm";
+            this.DateNow.AutoSize = true;
+            this.DateNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateNow.Location = new System.Drawing.Point(12, 25);
+            this.DateNow.Name = "DateNow";
+            this.DateNow.Size = new System.Drawing.Size(233, 25);
+            this.DateNow.TabIndex = 28;
+            this.DateNow.Text = "11/11/2017. 4:20:20pm";
             // 
             // btn_Logout
             // 
@@ -68,6 +68,7 @@
             this.btm_switchCashier.TabIndex = 30;
             this.btm_switchCashier.Text = "Cashier Form";
             this.btm_switchCashier.UseVisualStyleBackColor = true;
+            this.btm_switchCashier.Click += new System.EventHandler(this.btm_switchCashier_Click);
             // 
             // btn_EmployeeList
             // 
@@ -78,14 +79,14 @@
             this.btn_EmployeeList.Text = "Employee List";
             this.btn_EmployeeList.UseVisualStyleBackColor = true;
             // 
-            // richTextBox2
+            // rtb_detail
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(17, 53);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox2.Size = new System.Drawing.Size(230, 54);
-            this.richTextBox2.TabIndex = 32;
-            this.richTextBox2.Text = "Logged in as: Koksin\nLogged in since: 420\nEmployee ID: 420blazeit\n";
+            this.rtb_detail.Location = new System.Drawing.Point(17, 53);
+            this.rtb_detail.Name = "rtb_detail";
+            this.rtb_detail.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtb_detail.Size = new System.Drawing.Size(230, 54);
+            this.rtb_detail.TabIndex = 32;
+            this.rtb_detail.Text = "Logged in as: Koksin\nLogged in since: 420\nEmployee ID: 420blazeit\n";
             // 
             // btn_store
             // 
@@ -143,11 +144,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_store);
             this.Controls.Add(this.btn_Transacition);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.rtb_detail);
             this.Controls.Add(this.btn_EmployeeList);
             this.Controls.Add(this.btm_switchCashier);
             this.Controls.Add(this.btn_Logout);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.DateNow);
             this.Name = "SupervisorForm";
             this.Text = "SupervisorForm";
             this.Load += new System.EventHandler(this.SupervisorForm_Load);
@@ -158,11 +159,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label DateNow;
         private System.Windows.Forms.Button btn_Logout;
         private System.Windows.Forms.Button btm_switchCashier;
         private System.Windows.Forms.Button btn_EmployeeList;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox rtb_detail;
         private System.Windows.Forms.Button btn_store;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Transacition;
