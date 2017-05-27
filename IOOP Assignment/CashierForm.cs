@@ -18,6 +18,7 @@ namespace IOOP_Assignment
         Item selectedItem;
         CurrentUser cu = new CurrentUser();
         List<Item> list = new List<Item>();
+        int paid, bill;
         public event EventHandler Textchange;
 
         public CashierForm(CurrentUser currentUser)
@@ -223,9 +224,24 @@ namespace IOOP_Assignment
 
         private void btn_Changes_Click(object sender, EventArgs e)
         {
-            int paid = int.Parse(txtPrepaid.Text);
-            int bill = int.Parse(rtbTotal.Text);
+            paid = int.Parse(txtPrepaid.Text);
+            bill = int.Parse(rtbTotal.Text);
             txtChange.Text = (paid - bill).ToString();
+
+        }
+
+        private void btn_GReceipt_Click(object sender, EventArgs e)
+        {
+            if (txtChange.Text == "")
+            {
+                MessageBox.Show("Payment must be made before generate receipt!");
+            }
+            else{
+            Receipt rc = new Receipt(list, paid, bill);
+            rc.ShowDialog();
+            }
+           
+          
 
         }
         

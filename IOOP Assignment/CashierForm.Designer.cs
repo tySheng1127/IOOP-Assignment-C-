@@ -44,7 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Enter = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btn_GReceipt = new System.Windows.Forms.Button();
             this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_colour = new System.Windows.Forms.Button();
             this.btn_paper = new System.Windows.Forms.Button();
@@ -225,14 +225,15 @@
             this.btn_Enter.UseVisualStyleBackColor = true;
             this.btn_Enter.Click += new System.EventHandler(this.btn_Enter_Click);
             // 
-            // button11
+            // btn_GReceipt
             // 
-            this.button11.Location = new System.Drawing.Point(552, 279);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(148, 207);
-            this.button11.TabIndex = 15;
-            this.button11.Text = "Generate Receipt";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btn_GReceipt.Location = new System.Drawing.Point(552, 279);
+            this.btn_GReceipt.Name = "btn_GReceipt";
+            this.btn_GReceipt.Size = new System.Drawing.Size(148, 207);
+            this.btn_GReceipt.TabIndex = 15;
+            this.btn_GReceipt.Text = "Generate Receipt";
+            this.btn_GReceipt.UseVisualStyleBackColor = true;
+            this.btn_GReceipt.Click += new System.EventHandler(this.btn_GReceipt_Click);
             // 
             // btn_Remove
             // 
@@ -247,7 +248,7 @@
             // 
             // btn_colour
             // 
-            this.btn_colour.Location = new System.Drawing.Point(363, 431);
+            this.btn_colour.Location = new System.Drawing.Point(317, 431);
             this.btn_colour.Name = "btn_colour";
             this.btn_colour.Size = new System.Drawing.Size(55, 55);
             this.btn_colour.TabIndex = 26;
@@ -257,7 +258,7 @@
             // 
             // btn_paper
             // 
-            this.btn_paper.Location = new System.Drawing.Point(302, 431);
+            this.btn_paper.Location = new System.Drawing.Point(256, 431);
             this.btn_paper.Name = "btn_paper";
             this.btn_paper.Size = new System.Drawing.Size(55, 55);
             this.btn_paper.TabIndex = 25;
@@ -277,7 +278,7 @@
             // 
             // btn_sandwich
             // 
-            this.btn_sandwich.Location = new System.Drawing.Point(363, 370);
+            this.btn_sandwich.Location = new System.Drawing.Point(317, 370);
             this.btn_sandwich.Name = "btn_sandwich";
             this.btn_sandwich.Size = new System.Drawing.Size(55, 55);
             this.btn_sandwich.TabIndex = 23;
@@ -287,7 +288,7 @@
             // 
             // btn_milk
             // 
-            this.btn_milk.Location = new System.Drawing.Point(302, 370);
+            this.btn_milk.Location = new System.Drawing.Point(256, 370);
             this.btn_milk.Name = "btn_milk";
             this.btn_milk.Size = new System.Drawing.Size(55, 55);
             this.btn_milk.TabIndex = 22;
@@ -307,7 +308,7 @@
             // 
             // btn_flower
             // 
-            this.btn_flower.Location = new System.Drawing.Point(363, 309);
+            this.btn_flower.Location = new System.Drawing.Point(317, 309);
             this.btn_flower.Name = "btn_flower";
             this.btn_flower.Size = new System.Drawing.Size(55, 55);
             this.btn_flower.TabIndex = 20;
@@ -317,7 +318,7 @@
             // 
             // btn_OJ
             // 
-            this.btn_OJ.Location = new System.Drawing.Point(302, 309);
+            this.btn_OJ.Location = new System.Drawing.Point(256, 309);
             this.btn_OJ.Name = "btn_OJ";
             this.btn_OJ.Size = new System.Drawing.Size(55, 55);
             this.btn_OJ.TabIndex = 19;
@@ -494,7 +495,7 @@
             this.Controls.Add(this.btn_OJ);
             this.Controls.Add(this.btn_Panadol);
             this.Controls.Add(this.btn_Remove);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.btn_GReceipt);
             this.Controls.Add(this.btn_Enter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -537,7 +538,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Enter;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btn_GReceipt;
         private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_colour;
         private System.Windows.Forms.Button btn_paper;

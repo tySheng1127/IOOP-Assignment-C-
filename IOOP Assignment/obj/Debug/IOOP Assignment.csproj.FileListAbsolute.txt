@@ -10,5 +10,6 @@ C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\IOOP Assignme
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP Assignment.exe
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP Assignment.pdb
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.CurrentStock.resources
-C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\ioopassignment.mdf
-C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\ioopassignment_log.ldf
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\Cashier.mdf
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\Cashier_log.ldf
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.Receipt.resources
