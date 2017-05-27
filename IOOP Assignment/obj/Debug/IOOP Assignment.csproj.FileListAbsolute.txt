@@ -13,3 +13,5 @@ C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignme
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\Cashier.mdf
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\Cashier_log.ldf
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.Receipt.resources
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\EmployeeList.mdf
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\EmployeeList_log.ldf
