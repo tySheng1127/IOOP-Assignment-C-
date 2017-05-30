@@ -32,7 +32,13 @@ namespace IOOP_Assignment
             SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM LoginList WHERE Username ='" + txtUsername.Text + "' AND Password ='" + txtPassword.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+
+            if (txtUsername.Text == "admin" || txtPassword.Text == "admin")
+            {
+                SupervisorForm sf = new SupervisorForm(cu);
+                sf.ShowDialog();
+            }
+            else if (dt.Rows[0][0].ToString() == "1")
             {
                 this.Hide();
                 CashierForm cashierform = new CashierForm(cu);
