@@ -19,7 +19,7 @@ namespace IOOP_Assignment
         CurrentUser cu = new CurrentUser();
         List<Item> list = new List<Item>();
         int paid, bill;
-        public event EventHandler Textchange;
+        
 
         public CashierForm(CurrentUser currentUser)
         {

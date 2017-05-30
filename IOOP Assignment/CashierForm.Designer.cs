@@ -65,13 +65,13 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.btn_CReport = new System.Windows.Forms.Button();
-            this.cashierDataSet = new IOOP_Assignment.CashierDataSet();
+       
             this.cashierDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbItem = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btn_Changes = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.cashierDataSet)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.cashierDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -426,16 +426,8 @@
             this.btn_CReport.Text = "Cashier Report";
             this.btn_CReport.UseVisualStyleBackColor = true;
             // 
-            // cashierDataSet
-            // 
-            this.cashierDataSet.DataSetName = "CashierDataSet";
-            this.cashierDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cashierDataSetBindingSource
-            // 
-            this.cashierDataSetBindingSource.DataSource = this.cashierDataSet;
-            this.cashierDataSetBindingSource.Position = 0;
-            // 
+           
+           
             // lbItem
             // 
             this.lbItem.FormattingEnabled = true;
@@ -514,7 +506,7 @@
             this.Name = "CashierForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "CashierForm";
-            ((System.ComponentModel.ISupportInitialize)(this.cashierDataSet)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.cashierDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -559,7 +551,7 @@
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button btn_CReport;
-        private CashierDataSet cashierDataSet;
+  
         private System.Windows.Forms.BindingSource cashierDataSetBindingSource;
         private System.Windows.Forms.ListBox lbItem;
         private System.Windows.Forms.TextBox textBox1;
