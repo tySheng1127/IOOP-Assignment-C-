@@ -39,7 +39,8 @@ namespace IOOP_Assignment
 
         private void btn_store_Click(object sender, EventArgs e)
         {
-
+            CurrentStock cs = new CurrentStock();
+            cs.ShowDialog();
         }
 
         private void btm_switchCashier_Click(object sender, EventArgs e)

@@ -48,6 +48,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "CurrentStock";
             this.Text = "CurrentStock";
+            this.Load += new System.EventHandler(this.CurrentStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

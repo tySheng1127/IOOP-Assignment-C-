@@ -12,9 +12,16 @@ namespace IOOP_Assignment
 {
     public partial class CurrentStock : Form
     {
+        DatabaseManagement dbm = new DatabaseManagement();
+
         public CurrentStock()
         {
             InitializeComponent();
+        }
+
+        private void CurrentStock_Load(object sender, EventArgs e)
+        {
+            dbm.ViewAll();
         }
     }
 }

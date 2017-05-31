@@ -13,3 +13,18 @@ C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignme
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.Receipt.resources
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\Database.mdf
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\bin\Debug\Database_log.ldf
+E:\IOOP-Assignment-C-\IOOP Assignment\bin\Debug\IOOP Assignment.exe.config
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP Assignment.exe
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP Assignment.pdb
+E:\IOOP-Assignment-C-\IOOP Assignment\bin\Debug\Database.mdf
+E:\IOOP-Assignment-C-\IOOP Assignment\bin\Debug\Database_log.ldf
+E:\IOOP-Assignment-C-\IOOP Assignment\bin\Debug\IOOP Assignment.exe
+E:\IOOP-Assignment-C-\IOOP Assignment\bin\Debug\IOOP Assignment.pdb
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP Assignment.csprojResolveAssemblyReference.cache
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.CashierForm.resources
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.CurrentStock.resources
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.LoginScreen.resources
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.Properties.Resources.resources
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.Receipt.resources
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.SupervisorForm.resources
+E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP Assignment.csproj.GenerateResource.Cache
