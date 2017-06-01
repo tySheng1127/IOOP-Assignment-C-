@@ -50,5 +50,15 @@ namespace IOOP_Assignment
   
 
         }
+
+        private void btn_Transaction_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_EmployeeList_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,8 @@ namespace IOOP_Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            cu.userName = txtUsername.Text;
+            cu.passWord = txtPassword.Text;
             SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\User\\Desktop\\IOOP Assignment C#\\IOOP Assignment\\Database.mdf;Integrated Security=True");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM LoginList WHERE Username ='" + txtUsername.Text + "' AND Password ='" + txtPassword.Text + "'", con);
             DataTable dt = new DataTable();
