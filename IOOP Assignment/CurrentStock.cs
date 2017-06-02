@@ -14,7 +14,7 @@ namespace IOOP_Assignment
 {
     public partial class CurrentStock : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\User\\Desktop\\IOOP Assignment C#\\IOOP Assignment\\Database.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
 
