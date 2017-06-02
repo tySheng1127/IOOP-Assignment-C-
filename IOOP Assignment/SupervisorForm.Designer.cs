@@ -35,8 +35,7 @@
             this.rtb_detail = new System.Windows.Forms.RichTextBox();
             this.btn_store = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btn_Transaction = new System.Windows.Forms.Button();
-            this.btnManageProduct = new System.Windows.Forms.Button();
+            this.btn_Transacition = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -62,7 +61,7 @@
             // 
             // btm_switchCashier
             // 
-            this.btm_switchCashier.Location = new System.Drawing.Point(17, 440);
+            this.btm_switchCashier.Location = new System.Drawing.Point(17, 400);
             this.btm_switchCashier.Name = "btm_switchCashier";
             this.btm_switchCashier.Size = new System.Drawing.Size(230, 35);
             this.btm_switchCashier.TabIndex = 30;
@@ -108,24 +107,14 @@
             this.button1.Text = "Logged Sessions";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btn_Transaction
+            // btn_Transacition
             // 
-            this.btn_Transaction.Location = new System.Drawing.Point(17, 185);
-            this.btn_Transaction.Name = "btn_Transaction";
-            this.btn_Transaction.Size = new System.Drawing.Size(230, 39);
-            this.btn_Transaction.TabIndex = 33;
-            this.btn_Transaction.Text = "Transaction Record";
-            this.btn_Transaction.UseVisualStyleBackColor = true;
-            this.btn_Transaction.Click += new System.EventHandler(this.btn_Transaction_Click);
-            // 
-            // btnManageProduct
-            // 
-            this.btnManageProduct.Location = new System.Drawing.Point(17, 400);
-            this.btnManageProduct.Name = "btnManageProduct";
-            this.btnManageProduct.Size = new System.Drawing.Size(230, 34);
-            this.btnManageProduct.TabIndex = 36;
-            this.btnManageProduct.Text = "Manage Product";
-            this.btnManageProduct.UseVisualStyleBackColor = true;
+            this.btn_Transacition.Location = new System.Drawing.Point(17, 185);
+            this.btn_Transacition.Name = "btn_Transacition";
+            this.btn_Transacition.Size = new System.Drawing.Size(230, 39);
+            this.btn_Transacition.TabIndex = 33;
+            this.btn_Transacition.Text = "Transaction Record";
+            this.btn_Transacition.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -140,12 +129,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 487);
+            this.ClientSize = new System.Drawing.Size(270, 453);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnManageProduct);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_store);
-            this.Controls.Add(this.btn_Transaction);
+            this.Controls.Add(this.btn_Transacition);
             this.Controls.Add(this.rtb_detail);
             this.Controls.Add(this.btn_EmployeeList);
             this.Controls.Add(this.btm_switchCashier);
@@ -168,8 +156,7 @@
         private System.Windows.Forms.RichTextBox rtb_detail;
         private System.Windows.Forms.Button btn_store;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_Transaction;
-        private System.Windows.Forms.Button btnManageProduct;
+        private System.Windows.Forms.Button btn_Transacition;
         private System.Windows.Forms.Button button2;
 
     }

@@ -39,7 +39,8 @@ namespace IOOP_Assignment
 
         private void btn_store_Click(object sender, EventArgs e)
         {
-
+            CurrentStock cs = new CurrentStock();
+            cs.ShowDialog();
         }
 
         private void btm_switchCashier_Click(object sender, EventArgs e)
@@ -51,12 +52,13 @@ namespace IOOP_Assignment
 
         }
 
-        private void btn_Transaction_Click(object sender, EventArgs e)
+        private void btn_EmployeeList_Click(object sender, EventArgs e)
         {
-
+            EmployeeList el = new EmployeeList();
+            el.ShowDialog();
         }
 
-        private void btn_EmployeeList_Click(object sender, EventArgs e)
+        private void btnManageProduct_Click(object sender, EventArgs e)
         {
 
         }

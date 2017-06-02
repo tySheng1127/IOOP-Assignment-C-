@@ -11,10 +11,12 @@ namespace IOOP_Assignment
         string itemDescription;
         double itemPrice;
         int itemQuantity;
+        double itemGST;
         public Item() {
             itemDescription = "error";
             itemPrice = 3.00;
             quantity = 0;
+            itemGST = 0;
         }
 
         public string description
@@ -32,6 +34,11 @@ namespace IOOP_Assignment
         {
             get { return itemQuantity; }
             set { itemQuantity = value; }
+        }
+        public double GST 
+        {
+            get { return itemGST; }
+            set { itemGST = value; ;} 
         }
     }
 }

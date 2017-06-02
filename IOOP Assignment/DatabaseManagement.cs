@@ -13,8 +13,8 @@ namespace IOOP_Assignment
         {
             string connetionString = null;
             SqlConnection con;
-            connetionString = "Data Source = Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\User\\Desktop\\IOOP Assignment C#\\IOOP Assignment\\Database.mdf;Integrated Security=True";
-
+            connetionString = "Data Source = (LocalDB)\\v11.0;AttachDbFilename=E:\\IOOP-Assignment-C-\\IOOP Assignment\\Database.mdf;Integrated Security=True";
+            //Data Source=(LocalDB)\v11.0;AttachDbFilename="E:\IOOP-Assignment-C-\IOOP Assignment\Database.mdf";Integrated Security=True
             con = new SqlConnection(connetionString);
             try
             {
@@ -34,7 +34,7 @@ namespace IOOP_Assignment
             SqlCommand command;
             string sql = null;
             SqlConnection con = OpenConnection();
-            sql = "Select * from TableName";
+            sql = "Select * from Product";
 
             try
             {
@@ -52,6 +52,11 @@ namespace IOOP_Assignment
             {
                 Console.WriteLine("Can not open connection ! \n" + ex.ToString());
             }
+        }
+
+        public void InsertRecord(CurrentStock cs)
+        {
+           
         }
     }
 }

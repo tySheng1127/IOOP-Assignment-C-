@@ -65,13 +65,11 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.btn_CReport = new System.Windows.Forms.Button();
-       
             this.cashierDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbItem = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btn_Changes = new System.Windows.Forms.Button();
-
             ((System.ComponentModel.ISupportInitialize)(this.cashierDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +129,7 @@
             this.btn_pendrive.Name = "btn_pendrive";
             this.btn_pendrive.Size = new System.Drawing.Size(55, 55);
             this.btn_pendrive.TabIndex = 5;
-            this.btn_pendrive.Text = "Pen Drive";
+            this.btn_pendrive.Text = "Pendrive";
             this.btn_pendrive.UseVisualStyleBackColor = true;
             this.btn_pendrive.Click += new System.EventHandler(this.btn_pendrive_Click);
             // 
@@ -426,8 +424,6 @@
             this.btn_CReport.Text = "Cashier Report";
             this.btn_CReport.UseVisualStyleBackColor = true;
             // 
-           
-           
             // lbItem
             // 
             this.lbItem.FormattingEnabled = true;
@@ -506,7 +502,6 @@
             this.Name = "CashierForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "CashierForm";
-            
             ((System.ComponentModel.ISupportInitialize)(this.cashierDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

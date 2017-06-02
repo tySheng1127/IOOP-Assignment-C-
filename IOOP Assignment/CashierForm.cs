@@ -64,127 +64,128 @@ namespace IOOP_Assignment
         private void btn_pen_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Pen         ";
+            selectedItem.description = "P01 Pen         ";
             selectedItem.price = 3.00;
+            selectedItem.GST = 0;
 
         }
 
         private void btn_ruler_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Ruler       ";
+            selectedItem.description = "P02 Ruler       ";
             selectedItem.price = 1.00;
         }
 
         private void btn_Eraser_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Eraser     ";
+            selectedItem.description = "P03 Eraser     ";
             selectedItem.price = 0.50;
         }
 
         private void btn_CD_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "CD          ";
+            selectedItem.description = "P04 CD          ";
             selectedItem.price = 3.50;
         }
 
         private void btn_pendrive_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Pendrive ";
+            selectedItem.description = "P05 Pendrive ";
             selectedItem.price = 32;
         }
 
         private void btn_SDcard_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "SD Card  ";
+            selectedItem.description = "P06 SD Card  ";
             selectedItem.price = 64;
         }
 
         private void btn_bread_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Bread      ";
+            selectedItem.description = "P07 Bread      ";
             selectedItem.price = 2.00;
         }
 
         private void btn_Biscuit_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Biscuit     ";
+            selectedItem.description = "P08 Biscuit     ";
             selectedItem.price = 1.50;
         }
 
         private void btn_Candy_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Candy     ";
+            selectedItem.description = "P09 Candy     ";
             selectedItem.price = 0.10;
         }
 
         private void btn_Panadol_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Panadol  ";
+            selectedItem.description = "P10 Panadol  ";
             selectedItem.price = 12;
         }
 
         private void btn_drink_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Drinks     ";
+            selectedItem.description = "P11 Drinks     ";
             selectedItem.price = 2.50;
         }
 
         private void btn_coffe_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Coffee     ";
+            selectedItem.description = "P12 Coffee     ";
             selectedItem.price = 1.70;
         }
 
         private void btn_OJ_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Orange J ";
+            selectedItem.description = "P13 Orange J ";
             selectedItem.price = 4.00;
         }
 
         private void btn_milk_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Milk         ";
+            selectedItem.description = "P14 Milk         ";
             selectedItem.price = 3.50;
         }
 
         private void btn_paper_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "A4 Paper";
+            selectedItem.description = "P15 A4 Paper";
             selectedItem.price = 0.30;
         }
 
         private void btn_flower_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Flower     ";
+            selectedItem.description = "P16 Flower     ";
             selectedItem.price = 1.50;
         }
 
         private void btn_sandwich_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Sandwich";
+            selectedItem.description = "P17 Sandwich";
             selectedItem.price = 5.50;
         }
 
         private void btn_colour_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Colour     ";
+            selectedItem.description = "P18 Colour     ";
             selectedItem.price = 9.50;
         }
 
@@ -220,6 +221,7 @@ namespace IOOP_Assignment
                 list.Add(selectedItem);
                 selectedItem = new Item();
             }
+
         }
 
         private void btn_Changes_Click(object sender, EventArgs e)
