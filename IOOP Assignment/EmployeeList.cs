@@ -75,10 +75,11 @@ namespace IOOP_Assignment
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                cmd = new SqlCommand("update Loginlist set password=@pw where username = @name", con);
+                cmd = new SqlCommand("update Loginlist set password=@pw,JobTitle=@title where username = @name", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@name", txt_username.Text);
                 cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
+                cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -129,10 +130,11 @@ namespace IOOP_Assignment
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                cmd = new SqlCommand("insert into Loginlist(username,password) values(@name,@pw)", con);
+                cmd = new SqlCommand("insert into Loginlist(username,password,JobTitle) values(@name,@pw,@title)", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@name", txt_username.Text);
                 cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
+                cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 

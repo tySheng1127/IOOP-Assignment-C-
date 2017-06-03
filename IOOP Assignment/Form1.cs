@@ -16,6 +16,7 @@ namespace IOOP_Assignment
         public CurrentUser cu;
         SqlConnection con;
         SqlDataAdapter sda;
+        SqlCommand cmd;
         
         public LoginScreen()
         {
@@ -33,7 +34,37 @@ namespace IOOP_Assignment
         {
             con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("select username,password from Loginlist where username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'", con);
+            cmd = new SqlCommand("select * from Loginlist where  username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'and JobTitle='Supervisor'", con);
+            sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                this.Hide();
+                SupervisorForm sf = new SupervisorForm(cu);
+                sf.ShowDialog();
+            }
+            else
+            {
+                cmd = new SqlCommand("select username,password from Loginlist where username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'", con);
+                sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    this.Hide();
+                    CashierForm cf = new CashierForm(cu);
+                    cf.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Login please check username and password");
+                }
+              
+                
+            }
+            con.Close();
+            /*con.Open();
+            cmd = new SqlCommand("select username,password from Loginlist where username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'", con);
             sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -45,7 +76,6 @@ namespace IOOP_Assignment
             else if (dt.Rows.Count > 0)  
             {
                 this.Hide();
-                MessageBox.Show("Login sucess");  
                 CashierForm cf = new CashierForm(cu);
                 cf.ShowDialog();
             }  
@@ -53,7 +83,7 @@ namespace IOOP_Assignment
             {  
                 MessageBox.Show("Invalid Login please check username and password");  
             }  
-            con.Close(); 
+            con.Close(); */
         }
 
         private void btnExit_Click(object sender, EventArgs e)

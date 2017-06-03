@@ -13,7 +13,6 @@ namespace IOOP_Assignment
     public partial class SupervisorForm : Form
     {
 
-        
         CurrentUser cu = new CurrentUser();
 
         public SupervisorForm(CurrentUser currentuser)
@@ -25,11 +24,8 @@ namespace IOOP_Assignment
 
         }
 
-        private void SupervisorForm_Tick(object sender, EventArgs e)
-        {
-            DateNow.Text = DateTime.Now.ToString("yyyy/MM/dd"+":HH:mm:ss");
-        }
 
+       
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -61,6 +57,11 @@ namespace IOOP_Assignment
         private void btnManageProduct_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lb_time.Text = DateTime.Now.ToString("YY/mm/dd  "+"HH:mm:ss");
         }
     }
 }

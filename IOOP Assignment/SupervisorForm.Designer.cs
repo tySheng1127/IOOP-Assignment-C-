@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DateNow = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.lb_time = new System.Windows.Forms.Label();
             this.btn_Logout = new System.Windows.Forms.Button();
             this.btm_switchCashier = new System.Windows.Forms.Button();
             this.btn_EmployeeList = new System.Windows.Forms.Button();
@@ -37,17 +38,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Transacition = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // DateNow
+            // lb_time
             // 
-            this.DateNow.AutoSize = true;
-            this.DateNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateNow.Location = new System.Drawing.Point(12, 25);
-            this.DateNow.Name = "DateNow";
-            this.DateNow.Size = new System.Drawing.Size(233, 25);
-            this.DateNow.TabIndex = 28;
-            this.DateNow.Text = "11/11/2017. 4:20:20pm";
+            this.lb_time.AutoSize = true;
+            this.lb_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_time.Location = new System.Drawing.Point(14, 25);
+            this.lb_time.Name = "lb_time";
+            this.lb_time.Size = new System.Drawing.Size(233, 25);
+            this.lb_time.TabIndex = 28;
+            this.lb_time.Text = "11/11/2017. 4:20:20pm";
             // 
             // btn_Logout
             // 
@@ -125,6 +127,12 @@
             this.button2.Text = "Generate Report";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // SupervisorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,10 +146,9 @@
             this.Controls.Add(this.btn_EmployeeList);
             this.Controls.Add(this.btm_switchCashier);
             this.Controls.Add(this.btn_Logout);
-            this.Controls.Add(this.DateNow);
+            this.Controls.Add(this.lb_time);
             this.Name = "SupervisorForm";
             this.Text = "SupervisorForm";
-            this.Load += new System.EventHandler(this.SupervisorForm_Tick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,7 +156,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label DateNow;
+        private System.Windows.Forms.Label lb_time;
         private System.Windows.Forms.Button btn_Logout;
         private System.Windows.Forms.Button btm_switchCashier;
         private System.Windows.Forms.Button btn_EmployeeList;
@@ -158,6 +165,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Transacition;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer timer1;
 
     }
 }

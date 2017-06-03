@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseManagement.cs" />
     <Compile Include="EmployeeList.cs">
       <SubType>Form</SubType>
@@ -208,6 +213,17 @@
     </None>
     <None Include="DatabaseDataSet4.xss">
       <DependentUpon>DatabaseDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet5.xsc">
+      <DependentUpon>DatabaseDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet5.xss">
+      <DependentUpon>DatabaseDataSet5.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
