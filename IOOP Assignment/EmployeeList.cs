@@ -74,6 +74,14 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+                cmd = new SqlCommand("update Loginlist set password=@pw where username = @name", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@name", txt_username.Text);
+                cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
                 MessageBox.Show("EmployeeList is updated !");
                 DisplayData();
                 ClearData();
@@ -120,6 +128,14 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+                cmd = new SqlCommand("insert into Loginlist(username,password) values(@name,@pw)", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@name", txt_username.Text);
+                cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
                 MessageBox.Show("New Employee is inserted !");
                 DisplayData();
                 ClearData();
@@ -134,11 +150,18 @@ namespace IOOP_Assignment
         {
             if (txt_ID.Text != "")
             {
-                cmd = new SqlCommand("delete from Employee where EmployeeID=@id", con);
+                cmd = new SqlCommand("delete from Employee where EmployeeID=@id",con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@id", txt_ID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+                cmd = new SqlCommand("delete from Loginlist where username=@name", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@name", txt_username.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
                 MessageBox.Show("Record deleted !");
                 DisplayData();
                 ClearData();

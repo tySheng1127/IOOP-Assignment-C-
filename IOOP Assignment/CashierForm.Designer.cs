@@ -62,8 +62,8 @@
             this.txtChange = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
+            this.btn_Transactionlist = new System.Windows.Forms.Button();
+            this.btn_Previous = new System.Windows.Forms.Button();
             this.btn_CReport = new System.Windows.Forms.Button();
             this.cashierDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbItem = new System.Windows.Forms.ListBox();
@@ -211,7 +211,6 @@
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Total";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btn_Enter
             // 
@@ -352,7 +351,6 @@
             this.rtbDetails.Size = new System.Drawing.Size(250, 54);
             this.rtbDetails.TabIndex = 28;
             this.rtbDetails.Text = "Logged in as: Koksin\nLogged in since: 420\nEmployee ID: 420blazeit\n";
-            this.rtbDetails.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // label4
             // 
@@ -395,24 +393,23 @@
             this.label6.TabIndex = 34;
             this.label6.Text = "Change";
             // 
-            // button22
+            // btn_Transactionlist
             // 
-            this.button22.Location = new System.Drawing.Point(456, 208);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(70, 46);
-            this.button22.TabIndex = 35;
-            this.button22.Text = "Transaction List";
-            this.button22.UseVisualStyleBackColor = true;
+            this.btn_Transactionlist.Location = new System.Drawing.Point(456, 208);
+            this.btn_Transactionlist.Name = "btn_Transactionlist";
+            this.btn_Transactionlist.Size = new System.Drawing.Size(70, 46);
+            this.btn_Transactionlist.TabIndex = 35;
+            this.btn_Transactionlist.Text = "Transaction List";
+            this.btn_Transactionlist.UseVisualStyleBackColor = true;
             // 
-            // button23
+            // btn_Previous
             // 
-            this.button23.Location = new System.Drawing.Point(532, 208);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(81, 46);
-            this.button23.TabIndex = 36;
-            this.button23.Text = "Previous Transaction";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.btn_Previous.Location = new System.Drawing.Point(532, 208);
+            this.btn_Previous.Name = "btn_Previous";
+            this.btn_Previous.Size = new System.Drawing.Size(81, 46);
+            this.btn_Previous.TabIndex = 36;
+            this.btn_Previous.Text = "Previous Transaction";
+            this.btn_Previous.UseVisualStyleBackColor = true;
             // 
             // btn_CReport
             // 
@@ -464,8 +461,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbItem);
             this.Controls.Add(this.btn_CReport);
-            this.Controls.Add(this.button23);
-            this.Controls.Add(this.button22);
+            this.Controls.Add(this.btn_Previous);
+            this.Controls.Add(this.btn_Transactionlist);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtChange);
@@ -543,8 +540,8 @@
         private System.Windows.Forms.TextBox txtChange;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button btn_Transactionlist;
+        private System.Windows.Forms.Button btn_Previous;
         private System.Windows.Forms.Button btn_CReport;
   
         private System.Windows.Forms.BindingSource cashierDataSetBindingSource;

@@ -8,6 +8,7 @@ namespace IOOP_Assignment
 {
     public class Item
     {
+        string productID;
         string itemDescription;
         double itemPrice;
         int itemQuantity;
@@ -19,6 +20,11 @@ namespace IOOP_Assignment
             itemGST = 0;
         }
 
+        public string product
+        {
+            get { return productID;}
+            set {productID = value;}
+        }
         public string description
         {
             get { return itemDescription; }

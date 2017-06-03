@@ -14,6 +14,9 @@ namespace IOOP_Assignment
     public partial class LoginScreen : Form
     {
         public CurrentUser cu;
+        SqlConnection con;
+        SqlDataAdapter sda;
+        
         public LoginScreen()
         {
             cu = new CurrentUser();
@@ -28,26 +31,35 @@ namespace IOOP_Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\User\\Desktop\\IOOP Assignment C#\\IOOP Assignment\\Database.mdf;Integrated Security=True");
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM LoginList WHERE Username ='" + txtUsername.Text + "' AND Password ='" + txtPassword.Text + "'", con);
+            con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select username,password from Loginlist where username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'", con);
+            sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-
             if (txtUsername.Text == "admin" || txtPassword.Text == "admin")
             {
                 SupervisorForm sf = new SupervisorForm(cu);
                 sf.ShowDialog();
             }
-            else if (dt.Rows[0][0].ToString() == "1")
+            else if (dt.Rows.Count > 0)  
             {
                 this.Hide();
-                CashierForm cashierform = new CashierForm(cu);
-                cashierform.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Invalid Username or Password !");
-            }
+                MessageBox.Show("Login sucess");  
+                CashierForm cf = new CashierForm(cu);
+                cf.ShowDialog();
+            }  
+            else  
+            {  
+                MessageBox.Show("Invalid Login please check username and password");  
+            }  
+            con.Close(); 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
             /*cu.userName = txtUsername.Text;
             cu.passWord = txtPassword.Text;
             if (txtPassword.Text == "" || txtUsername.Text == "" ) {
@@ -65,11 +77,8 @@ namespace IOOP_Assignment
                 cashierForm.ShowDialog();
             }*/
 
-        }
         
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
+        
+      
     }
 }

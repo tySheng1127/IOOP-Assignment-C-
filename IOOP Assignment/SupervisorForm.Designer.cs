@@ -141,7 +141,7 @@
             this.Controls.Add(this.DateNow);
             this.Name = "SupervisorForm";
             this.Text = "SupervisorForm";
-            this.Load += new System.EventHandler(this.SupervisorForm_Load);
+            this.Load += new System.EventHandler(this.SupervisorForm_Tick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace IOOP_Assignment
 {
     public partial class CashierForm : Form
     {
-
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
+        SqlCommand cmd;
         private int x;
         double total;
         Item selectedItem;
@@ -25,7 +28,7 @@ namespace IOOP_Assignment
         {
             InitializeComponent();
             cu = currentUser;
-            TimeNow.Text = DateTime.Now.Date.ToString("yyyy/MM/dd");
+            TimeNow.Text = DateTime.Now.ToString("yyyy/MM/dd");
             x = 1;
             total = 0;
             rtbDetails.Text = cu.userName;
@@ -46,27 +49,15 @@ namespace IOOP_Assignment
             ls.ShowDialog();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_pen_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P01 Pen         ";
+            selectedItem.description = "Pen         ";
             selectedItem.price = 3.00;
             selectedItem.GST = 0;
+            selectedItem.product = "P01";
 
         }
 
@@ -213,6 +204,7 @@ namespace IOOP_Assignment
             }
             else
             {
+              
                 selectedItem.quantity = int.Parse(txtQuantity.Text);
                 lbItem.Items.Add(x.ToString() + "                             " + selectedItem.description + "                                 " + txtQuantity.Text +"          "+ selectedItem.price);
                 x++;
@@ -220,20 +212,38 @@ namespace IOOP_Assignment
                 rtbTotal.Text = total.ToString();
                 list.Add(selectedItem);
                 selectedItem = new Item();
+                cmd = new SqlCommand("insert into ItemSales(SalesID,ProductID,Quantity,Price) values(@id,@product,@quantity,@price)", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@id", "S" + x.ToString());
+                cmd.Parameters.AddWithValue("@product", selectedItem.product);
+                cmd.Parameters.AddWithValue("@quantity", selectedItem.quantity);          
+                cmd.Parameters.AddWithValue("@price", selectedItem.price);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
             }
 
         }
 
         private void btn_Changes_Click(object sender, EventArgs e)
         {
-            paid = int.Parse(txtPrepaid.Text);
-            bill = int.Parse(rtbTotal.Text);
-            txtChange.Text = (paid - bill).ToString();
+            if (txtChange.Text != "")
+            {
+                paid = int.Parse(txtPrepaid.Text);
+                bill = int.Parse(rtbTotal.Text);
+                txtChange.Text = (paid - bill).ToString();
+            }
+            else
+            {
+                MessageBox.Show("No Payment made !");
+            }
+         
 
         }
 
         private void btn_GReceipt_Click(object sender, EventArgs e)
         {
+            
             if (txtChange.Text == "")
             {
                 MessageBox.Show("Payment must be made before generate receipt!");

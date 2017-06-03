@@ -21,13 +21,13 @@ namespace IOOP_Assignment
             InitializeComponent();
             cu = currentuser;
             rtb_detail.Text = cu.userName;
-            DateNow.Text = DateTime.Now.Date.ToString("yyyy/MM/dd");
+            
 
         }
 
-        private void SupervisorForm_Load(object sender, EventArgs e)
+        private void SupervisorForm_Tick(object sender, EventArgs e)
         {
-
+            DateNow.Text = DateTime.Now.ToString("yyyy/MM/dd"+":HH:mm:ss");
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
