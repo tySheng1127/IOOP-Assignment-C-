@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
     public partial class SupervisorForm : Form
     {
-
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
+        SqlCommand cmd;
         CurrentUser cu = new CurrentUser();
 
         public SupervisorForm(CurrentUser currentuser)
@@ -20,7 +22,6 @@ namespace IOOP_Assignment
             InitializeComponent();
             cu = currentuser;
             rtb_detail.Text = cu.userName;
-            
 
         }
 
@@ -28,7 +29,15 @@ namespace IOOP_Assignment
        
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            DateTime time = DateTime.Now;
+            
+            cmd = new SqlCommand("insert into LoggedSession(Username,LogoutTime) values(@name,@logout)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@name", cu.userName);
+            cmd.Parameters.AddWithValue("@logout", time);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            this.Hide();
             LoginScreen ls = new LoginScreen();
             ls.ShowForm();
         }
@@ -61,7 +70,13 @@ namespace IOOP_Assignment
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lb_time.Text = DateTime.Now.ToString("YY/mm/dd  "+"HH:mm:ss");
+            lb_time.Text = DateTime.Now.ToString("yyyy/MM/DD  "+"HH:mm:ss");
+        }
+
+        private void btn_Logged_Click(object sender, EventArgs e)
+        {
+            LoggedSession ls = new LoggedSession();
+            ls.ShowDialog();
         }
     }
 }

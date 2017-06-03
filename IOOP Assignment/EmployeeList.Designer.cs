@@ -390,7 +390,7 @@
             // 
             this.cb_Jobtitle.FormattingEnabled = true;
             this.cb_Jobtitle.Items.AddRange(new object[] {
-            "Employee",
+            "Cashier",
             "Supervisor"});
             this.cb_Jobtitle.Location = new System.Drawing.Point(719, 112);
             this.cb_Jobtitle.Name = "cb_Jobtitle";

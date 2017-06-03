@@ -29,3 +29,4 @@ E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.Receipt.resource
 E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.SupervisorForm.resources
 E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP Assignment.csproj.GenerateResource.Cache
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.EmployeeList.resources
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.LoggedSession.resources

@@ -127,7 +127,14 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@bank", txt_Bank.Text);
                 cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
                 cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show("EmployeeID already exists!");
+                }
                 con.Close();
 
                 cmd = new SqlCommand("insert into Loginlist(username,password,JobTitle) values(@name,@pw,@title)", con);
@@ -135,12 +142,20 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@name", txt_username.Text);
                 cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
                 cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("New Employee is inserted !");
+                    DisplayData();
+                    ClearData();
+                }
+                catch
+                {
+                    MessageBox.Show("Username already exists!");
+                }
                 con.Close();
 
-                MessageBox.Show("New Employee is inserted !");
-                DisplayData();
-                ClearData();
+                
             }
             else
             {

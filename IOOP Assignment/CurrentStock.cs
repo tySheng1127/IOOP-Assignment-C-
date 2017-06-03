@@ -62,11 +62,18 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@price", txt_Price.Text);
                 cmd.Parameters.AddWithValue("@amount", txt_Amount.Text);
                 cmd.Parameters.AddWithValue("@reorder", txt_Reorder.Text);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Product is inserted !");
+                    DisplayData();
+                    ClearData();
+                }
+                catch
+                {
+                    MessageBox.Show("Product existed !");
+                }
                 con.Close();
-                MessageBox.Show("Product is inserted !");
-                DisplayData();
-                ClearData();
 
             }
             else

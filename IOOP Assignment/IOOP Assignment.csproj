@@ -102,6 +102,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseDataSetLoginScreen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSetLoginScreen.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseManagement.cs" />
     <Compile Include="EmployeeList.cs">
       <SubType>Form</SubType>
@@ -117,6 +137,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
+    <Compile Include="LoggedSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoggedSession.Designer.cs">
+      <DependentUpon>LoggedSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receipt.cs">
@@ -142,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoggedSession.resx">
+      <DependentUpon>LoggedSession.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -224,6 +253,50 @@
     </None>
     <None Include="DatabaseDataSet5.xss">
       <DependentUpon>DatabaseDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet6.xsc">
+      <DependentUpon>DatabaseDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet6.xss">
+      <DependentUpon>DatabaseDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet7.xsc">
+      <DependentUpon>DatabaseDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet7.xss">
+      <DependentUpon>DatabaseDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet8.xsc">
+      <DependentUpon>DatabaseDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet8.xss">
+      <DependentUpon>DatabaseDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSetLoginScreen.xsc">
+      <DependentUpon>DatabaseDataSetLoginScreen.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSetLoginScreen.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSetLoginScreen.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSetLoginScreen.xss">
+      <DependentUpon>DatabaseDataSetLoginScreen.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
