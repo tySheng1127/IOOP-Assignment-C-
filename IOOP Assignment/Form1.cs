@@ -58,14 +58,14 @@ namespace IOOP_Assignment
                 sda.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    con.Close();
+    
                     DateTime time = DateTime.Now;
                     cmd = new SqlCommand("insert into LoggedSession(Username,LoginTime) values(@name,@login)", con);
-                    con.Open();
                     cmd.Parameters.AddWithValue("@name", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@login", time);
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    cu.userName = txtUsername.Text;
                     this.Hide();
                     CashierForm cf = new CashierForm(cu);
                     cf.ShowDialog();

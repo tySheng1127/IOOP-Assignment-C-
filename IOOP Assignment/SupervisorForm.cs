@@ -16,12 +16,13 @@ namespace IOOP_Assignment
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlCommand cmd;
         CurrentUser cu = new CurrentUser();
+        DateTime time = DateTime.Now;
 
         public SupervisorForm(CurrentUser currentuser)
         {
             InitializeComponent();
             cu = currentuser;
-            rtb_detail.Text = cu.userName;
+            rtb_detail.Text = "Logged in as: " + cu.userName + "\n Logged in since: " + time;
 
         }
 
@@ -44,7 +45,7 @@ namespace IOOP_Assignment
 
         private void btn_store_Click(object sender, EventArgs e)
         {
-            CurrentStock cs = new CurrentStock();
+            CurrentStock cs = new CurrentStock(cu);
             cs.ShowDialog();
         }
 
@@ -70,13 +71,19 @@ namespace IOOP_Assignment
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lb_time.Text = DateTime.Now.ToString("yyyy/MM/DD  "+"HH:mm:ss");
+            lb_time.Text = DateTime.Now.ToString("yyyy/MM/dd  "+"HH:mm:ss");
         }
 
         private void btn_Logged_Click(object sender, EventArgs e)
         {
             LoggedSession ls = new LoggedSession();
             ls.ShowDialog();
+        }
+
+        private void btn_Transacition_Click(object sender, EventArgs e)
+        {
+            TransactionRecord tr = new TransactionRecord();
+            tr.ShowDialog();
         }
     }
 }

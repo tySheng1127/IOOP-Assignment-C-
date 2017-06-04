@@ -17,10 +17,12 @@ namespace IOOP_Assignment
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
+        CurrentUser cu = new CurrentUser();
 
-        public CurrentStock()
+        public CurrentStock(CurrentUser currentuser)
         {
             InitializeComponent();
+            cu = currentuser;
             DisplayData();
         }
 
@@ -65,15 +67,22 @@ namespace IOOP_Assignment
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand("insert into [Transaction](ProductID,Quantity,Price,EmployeeInCharge,Type) values(@product,@quantity,@price,@incharge,'Purchase')", con);
+                    cmd.Parameters.AddWithValue("@product", txt_ID.Text);
+                    cmd.Parameters.AddWithValue("@quantity", txt_Amount.Text);
+                    cmd.Parameters.AddWithValue("@price", txt_Price.Text);
+                    cmd.Parameters.AddWithValue("@incharge", cu.userName);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                     MessageBox.Show("Product is inserted !");
                     DisplayData();
                     ClearData();
                 }
                 catch
                 {
-                    MessageBox.Show("Product existed !");
+                    MessageBox.Show("Product already existed !");
                 }
-                con.Close();
+                
 
             }
             else
@@ -86,7 +95,7 @@ namespace IOOP_Assignment
         {
             if (txt_ID.Text != "" && txt_Name.Text != "" && cb_category.Text != "" && txt_Price.Text != "" && txt_Amount.Text != "" && txt_Reorder.Text != "")
             {
-                cmd = new SqlCommand("update Product set Name=@name,Category=@category,Price=@price,StockAmount=@Amount,ReorderThreshold=@reorder where ProductID=@id", con);
+                cmd = new SqlCommand("update Product set Name=@name,Category=@category,Price=@price,StockAmount=StockAmount + @Amount,ReorderThreshold=@reorder where ProductID=@id", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@id", txt_ID.Text);
                 cmd.Parameters.AddWithValue("@name", txt_Name.Text);
@@ -94,6 +103,12 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@price", txt_Price.Text);
                 cmd.Parameters.AddWithValue("@amount", txt_Amount.Text);
                 cmd.Parameters.AddWithValue("@reorder", txt_Reorder.Text);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("insert into [Transaction](ProductID,Quantity,Price,EmployeeInCharge,Type) values(@product,@quantity,@price,@incharge,'Purchase')", con);
+                cmd.Parameters.AddWithValue("@product", txt_ID.Text);
+                cmd.Parameters.AddWithValue("@quantity", txt_Amount.Text);
+                cmd.Parameters.AddWithValue("@price", txt_Price.Text);
+                cmd.Parameters.AddWithValue("@incharge", cu.userName);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Product is updated !");

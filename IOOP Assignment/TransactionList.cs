@@ -11,14 +11,15 @@ using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
-    public partial class LoggedSession : Form
+    public partial class TransactionList : Form
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlDataAdapter adapt;
-
-        public LoggedSession()
+        CurrentUser cu = new CurrentUser();
+        public TransactionList(CurrentUser currentuser)
         {
             InitializeComponent();
+            cu = currentuser;
             DisplayData();
         }
 
@@ -26,17 +27,15 @@ namespace IOOP_Assignment
         {
             con.Open();
             DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select * from LoggedSession", con);
+            adapt = new SqlDataAdapter("select * from [Transaction] where EmployeeInCharge='"+cu.userName+"'", con);
             adapt.Fill(dt);
-            DGV_logged.DataSource = dt;
+            DGV_TransactionList.DataSource = dt;
             con.Close();
         }
 
-        private void btn_Back_Click(object sender, EventArgs e)
+        private void btn_back_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        
     }
 }

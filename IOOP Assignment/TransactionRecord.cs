@@ -11,12 +11,12 @@ using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
-    public partial class LoggedSession : Form
+    public partial class TransactionRecord : Form
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlDataAdapter adapt;
 
-        public LoggedSession()
+        public TransactionRecord()
         {
             InitializeComponent();
             DisplayData();
@@ -26,9 +26,9 @@ namespace IOOP_Assignment
         {
             con.Open();
             DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select * from LoggedSession", con);
+            adapt = new SqlDataAdapter("select * from [Transaction]", con);
             adapt.Fill(dt);
-            DGV_logged.DataSource = dt;
+            DGV_TransactionRecord.DataSource = dt;
             con.Close();
         }
 
@@ -36,7 +36,5 @@ namespace IOOP_Assignment
         {
             this.Close();
         }
-
-        
     }
 }

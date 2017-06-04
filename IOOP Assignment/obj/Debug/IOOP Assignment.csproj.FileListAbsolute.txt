@@ -30,3 +30,5 @@ E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP_Assignment.SupervisorForm.r
 E:\IOOP-Assignment-C-\IOOP Assignment\obj\Debug\IOOP Assignment.csproj.GenerateResource.Cache
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.EmployeeList.resources
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.LoggedSession.resources
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.TransactionRecord.resources
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.TransactionList.resources

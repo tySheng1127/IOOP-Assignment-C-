@@ -13,12 +13,21 @@ namespace IOOP_Assignment
         double itemPrice;
         int itemQuantity;
         double itemGST;
+        double OriginalPrice;
+        string category;
+
+
         public Item() {
             itemDescription = "error";
             itemPrice = 3.00;
             quantity = 0;
             itemGST = 0;
+            product = "error";
+            OriginalPrice = 2.00;
+            category = "S";
+
         }
+
 
         public string product
         {
@@ -45,6 +54,16 @@ namespace IOOP_Assignment
         {
             get { return itemGST; }
             set { itemGST = value; ;} 
+        }
+        public double pricewithoutGST
+        {
+            get { return OriginalPrice; }
+            set { OriginalPrice = value; }
+        }
+        public string rate
+        {
+            get { return category; }
+            set { category = value; }
         }
     }
 }

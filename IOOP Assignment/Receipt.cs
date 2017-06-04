@@ -7,27 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace IOOP_Assignment
 {
     public partial class Receipt : Form
     {
         List<Item> list = new List<Item>();
-        CashierForm cf = new CashierForm();
-        
+        CurrentUser cu = new CurrentUser();
+        int total;
+        double amounts,amountz,tax;
 
 
-        public Receipt(List<Item> listFromCashierForm, int paid, int bill)
+        public Receipt(CurrentUser currentuser,List<Item> listFromCashierForm, double paid, double bill)
         {
+            total = 0;
+            cu = currentuser;
             list = listFromCashierForm;
             InitializeComponent();
             lb_currentdt.Text = DateTime.Now.ToString();
-            rtb_receipt.Text = "Description             Price               Quantity\n";
+            rtb_receipt.Text = "Description                   unit             Unit Price                 Total  \n";
             for (int i = 0; list.Count() > i; i++) {
-                rtb_receipt.Text += list[i].description + "                " + list[i].price.ToString() + "                  " + list[i].quantity.ToString() + "\n";
+                rtb_receipt.Text += list[i].description + "                        " + list[i].quantity.ToString() + "                  " + list[i].price.ToString() + "                    " + list[i].price * list[i].quantity+"   "+list[i].rate.ToString()+"\n";
+                 total += list[i].quantity;
+                 if (list[i].rate.ToString() == "S")
+                 {
+                     amounts += list[i].pricewithoutGST*list[i].quantity;
+                     tax += amounts*0.06;
+                     
+                 }
+                 else
+                 {
+                     amountz += list[i].price*list[i].quantity;
+                 }
             }
-            rtb_Change.Text = "Total:" + bill.ToString()+"\n"+"Payment: "+paid.ToString()+"\n"+"Changes:" + (paid - bill).ToString(); 
-           
+  
+            rtb_Change.Text = "Item Count: "+total.ToString()+"\nTotal Sales Inclusive GST @6%: " + bill.ToString()+"\nCash: "+paid.ToString()+"\nBalance:" + (paid - bill).ToString();
+            rtb_GST.Text = "GST Summary                      Amount                     Tax(RM)  \n" + "S = 6%                                   " + amounts.ToString() + "                            " + Math.Round(tax,2).ToString() + "\nZ = 0%                                   " + amountz.ToString() + "                            0.00";
+            lb_Cashier.Text = "Cashier : " + cu.userName;
             
         }
 

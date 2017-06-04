@@ -21,18 +21,19 @@ namespace IOOP_Assignment
         Item selectedItem;
         CurrentUser cu = new CurrentUser();
         List<Item> list = new List<Item>();
-        int paid, bill;
+        double paid, bill,change;
+        DateTime time = DateTime.Now;
         
 
         public CashierForm(CurrentUser currentUser)
         {
             InitializeComponent();
             cu = currentUser;
-            TimeNow.Text = DateTime.Now.ToString("yyyy/MM/dd");
             x = 1;
             total = 0;
-            rtbDetails.Text = cu.userName;
+            rtbDetails.Text = "Logged in as: "+ cu.userName+"\n Logged in since: "+time;
             selectedItem = new Item();
+            Math.Round(change, 2);
           
         }
 
@@ -44,6 +45,13 @@ namespace IOOP_Assignment
  
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            DateTime time = DateTime.Now;
+            cmd = new SqlCommand("insert into LoggedSession(Username,LogoutTime) values(@name,@logout)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@name", cu.userName);
+            cmd.Parameters.AddWithValue("@logout", time);
+            cmd.ExecuteNonQuery();
+            con.Close();
             LoginScreen ls = new LoginScreen();
             this.Dispose();
             ls.ShowDialog();
@@ -54,147 +62,193 @@ namespace IOOP_Assignment
         private void btn_pen_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Pen         ";
+            selectedItem.description = "Pen       ";
             selectedItem.price = 3.00;
-            selectedItem.GST = 0;
-            selectedItem.product = "P01";
-
+            selectedItem.GST = 0.18;
+            selectedItem.product = "P01  ";
+            selectedItem.pricewithoutGST = 2.82;
+            selectedItem.rate = "S";
         }
 
         private void btn_ruler_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "Ruler       ";
+            selectedItem.description = "Ruler     ";
             selectedItem.price = 1.00;
-            selectedItem.product = "P02";
+            selectedItem.GST = 0.17;
+            selectedItem.product = "P02  ";
+            selectedItem.pricewithoutGST = 0.83;
+            selectedItem.rate = "S";
         }
 
         private void btn_Eraser_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P03 Eraser     ";
+            selectedItem.description = "Eraser   ";
             selectedItem.price = 0.50;
-            selectedItem.product = "P03";
+            selectedItem.GST = 0.03;
+            selectedItem.product = "P03  ";
+            selectedItem.pricewithoutGST = 0.47;
+            selectedItem.rate = "S";
         }
 
         private void btn_CD_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P04 CD          ";
+            selectedItem.description = "CD        ";
             selectedItem.price = 3.50;
-            selectedItem.product = "P04";
+            selectedItem.GST = 0.21;
+            selectedItem.product = "P04  ";
+            selectedItem.pricewithoutGST = 3.29;
+            selectedItem.rate = "S";
         }
 
         private void btn_pendrive_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P05 Pendrive ";
+            selectedItem.description = "Pendrive";
             selectedItem.price = 32;
-            selectedItem.product = "P05";
+            selectedItem.GST = 1.92;
+            selectedItem.product = "P05  ";
+            selectedItem.pricewithoutGST = 30.08;
+            selectedItem.rate = "S";
         }
 
         private void btn_SDcard_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P06 SD Card  ";
+            selectedItem.description = "SD Card";
             selectedItem.price = 64;
-            selectedItem.product = "P06";
+            selectedItem.GST = 3.84;
+            selectedItem.product = "P06  ";
+            selectedItem.pricewithoutGST = 60.16;
+            selectedItem.rate = "S";
         }
 
         private void btn_bread_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P07 Bread      ";
+            selectedItem.description = "Bread    ";
             selectedItem.price = 2.00;
-            selectedItem.product = "P07";
+            selectedItem.GST = 0.12;
+            selectedItem.product = "P07  ";
+            selectedItem.pricewithoutGST = 1.88;
+            selectedItem.rate = "S";
         }
 
         private void btn_Biscuit_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P08 Biscuit     ";
+            selectedItem.description = "Biscuit   ";
             selectedItem.price = 1.50;
-            selectedItem.product = "P08";
+            selectedItem.GST = 0.09;
+            selectedItem.product = "P08  ";
+            selectedItem.pricewithoutGST = 1.41;
+            selectedItem.rate = "S";
         }
 
         private void btn_Candy_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P09 Candy     ";
+            selectedItem.description = "Candy   ";
             selectedItem.price = 0.10;
-            selectedItem.product = "P09";
+            selectedItem.product = "P09  ";
+            selectedItem.rate = "Z";
+
         }
 
         private void btn_Panadol_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P10 Panadol  ";
+            selectedItem.description = "Panadol";
             selectedItem.price = 12;
-            selectedItem.product = "P10";
+            selectedItem.product = "P10  ";
+            selectedItem.rate = "Z";
         }
 
         private void btn_drink_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P11 Drinks     ";
+            selectedItem.description = "Drinks   ";
             selectedItem.price = 2.50;
-            selectedItem.product = "P11";
+            selectedItem.GST = 0.15;
+            selectedItem.product = "P11  ";
+            selectedItem.pricewithoutGST = 2.35;
+            selectedItem.rate = "S";
         }
 
         private void btn_coffe_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P12 Coffee     ";
+            selectedItem.description = "Coffee   ";
             selectedItem.price = 1.70;
-            selectedItem.product = "P12";
+            selectedItem.product = "P12  ";
+            selectedItem.rate = "Z";
+
         }
 
         private void btn_OJ_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P13 Orange J ";
+            selectedItem.description = "Orange J";
             selectedItem.price = 4.00;
-            selectedItem.product = "P13";
+            selectedItem.GST = 0.24;
+            selectedItem.product = "P13  ";
+            selectedItem.pricewithoutGST = 3.76;
+            selectedItem.rate = "S";
         }
 
         private void btn_milk_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P14 Milk         ";
+            selectedItem.description = "Milk       ";
             selectedItem.price = 3.50;
-            selectedItem.product = "P14";
+            selectedItem.product = "P14  ";
+            selectedItem.rate = "Z";
         }
 
         private void btn_paper_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P15 A4 Paper";
+            selectedItem.description = "A4 Paper";
             selectedItem.price = 0.30;
-            selectedItem.product = "P15";
+            selectedItem.GST = 0.02;
+            selectedItem.product = "P15  ";
+            selectedItem.pricewithoutGST = 0.28;
+            selectedItem.rate = "S";
         }
 
         private void btn_flower_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P16 Flower     ";
+            selectedItem.description = "Flower   ";
             selectedItem.price = 1.50;
-            selectedItem.product = "P16";
+            selectedItem.GST = 0.09;
+            selectedItem.product = "P16  ";
+            selectedItem.pricewithoutGST = 1.41;
+            selectedItem.rate = "S";
         }
 
         private void btn_sandwich_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P17 Sandwich";
+            selectedItem.description = "Sandwich";
             selectedItem.price = 5.50;
-            selectedItem.product = "P17";
+            selectedItem.GST = 0.33;
+            selectedItem.product = "P17  ";
+            selectedItem.pricewithoutGST = 5.17;
+            selectedItem.rate = "S";
         }
 
         private void btn_colour_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
-            selectedItem.description = "P18 Colour     ";
+            selectedItem.description = "Colour   ";
             selectedItem.price = 9.50;
-            selectedItem.product = "P18";
+            selectedItem.GST = 0.57;
+            selectedItem.product = "P18  ";
+            selectedItem.pricewithoutGST = 8.93;
+            selectedItem.rate = "S";
         }
 
         private void btn_Remove_Click(object sender, EventArgs e)
@@ -202,12 +256,17 @@ namespace IOOP_Assignment
             // if index == 0, do nothing
             if (lbItem.SelectedIndex >= 0)
             {
-                int stupidIndex = lbItem.SelectedIndex;
+                cmd = new SqlCommand("delete from Transaction where ProductID=@id", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@id",list[lbItem.SelectedIndex].product);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                int stupidIndex = lbItem.SelectedIndex; 
                 total -= list[stupidIndex].price * list[stupidIndex].quantity;
                 rtbTotal.Text = total.ToString();
                 list.RemoveAt(stupidIndex);
                 lbItem.Items.Remove(lbItem.SelectedItem);
-                x--;
+                x--; 
             }
             
         }
@@ -223,22 +282,24 @@ namespace IOOP_Assignment
             {
  
                 selectedItem.quantity = int.Parse(txtQuantity.Text);
-                lbItem.Items.Add(x.ToString() + "                             " + selectedItem.description + "                                 " + txtQuantity.Text +"          "+ selectedItem.price);
+                lbItem.Items.Add(x.ToString() + "                   "+selectedItem.product+"                   " + selectedItem.description + "                     " + txtQuantity.Text +"          "+ selectedItem.price);
+                cmd = new SqlCommand("update Product set StockAmount = StockAmount - @amount where ProductID = '" + selectedItem.product + "'", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@amount", selectedItem.quantity);
+                cmd.ExecuteNonQuery();   
+                cmd = new SqlCommand("insert into [Transaction](ProductID,Quantity,Price,EmployeeInCharge,Type) values(@product,@quantity,@price,@incharge,'Sales')", con);
+                cmd.Parameters.AddWithValue("@product", selectedItem.product);
+                cmd.Parameters.AddWithValue("@quantity", selectedItem.quantity);
+                cmd.Parameters.AddWithValue("@price", selectedItem.price);
+                cmd.Parameters.AddWithValue("@incharge", cu.userName);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                
                 x++;
                 total += selectedItem.price * int.Parse(txtQuantity.Text);
                 rtbTotal.Text = total.ToString();
                 list.Add(selectedItem);
                 selectedItem = new Item();
-                cmd = new SqlCommand("INSERT INTO ItemSales values(@id,@product,@quantity,@price)",con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", "S"+ x.ToString());
-                cmd.Parameters.AddWithValue("@product", selectedItem.product);
-                cmd.Parameters.AddWithValue("@quantity", selectedItem.quantity);
-                cmd.Parameters.AddWithValue("@price", selectedItem.price);
-                
-                cmd.ExecuteNonQuery();
-                con.Close();
-
 
             }
 
@@ -246,11 +307,21 @@ namespace IOOP_Assignment
 
         private void btn_Changes_Click(object sender, EventArgs e)
         {
-            if (txtChange.Text != "")
+            if (txtPrepaid.Text != "")
             {
-                paid = int.Parse(txtPrepaid.Text);
-                bill = int.Parse(rtbTotal.Text);
-                txtChange.Text = (paid - bill).ToString();
+                 paid = double.Parse(txtPrepaid.Text);
+                 bill = double.Parse(rtbTotal.Text);
+                 if (paid > bill)
+                 {
+                     change = paid - bill;
+                     txtChange.Text = change.ToString();
+                     
+                 }
+                 else
+                 {
+                     MessageBox.Show("Insufficient Cash for payment !");
+                 }
+
             }
             else
             {
@@ -268,12 +339,20 @@ namespace IOOP_Assignment
                 MessageBox.Show("Payment must be made before generate receipt!");
             }
             else{
-            Receipt rc = new Receipt(list, paid, bill);
+            Receipt rc = new Receipt(cu,list, paid, bill);
             rc.ShowDialog();
             }
-           
-          
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lb_TimeNow.Text = DateTime.Now.ToString("yyyy/MM/dd  " + "HH:mm:ss");
+        }
+
+        private void btn_Transactionlist_Click(object sender, EventArgs e)
+        {
+            TransactionList tl = new TransactionList(cu);
+            tl.ShowDialog();
         }
         
 

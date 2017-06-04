@@ -44,7 +44,7 @@
             this.DGV_logged.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_logged.Location = new System.Drawing.Point(6, 12);
             this.DGV_logged.Name = "DGV_logged";
-            this.DGV_logged.Size = new System.Drawing.Size(341, 324);
+            this.DGV_logged.Size = new System.Drawing.Size(365, 324);
             this.DGV_logged.TabIndex = 0;
             // 
             // payRollBindingSource
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 395);
+            this.ClientSize = new System.Drawing.Size(376, 395);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.DGV_logged);
             this.Name = "LoggedSession";

@@ -119,6 +119,7 @@
             this.btn_Transacition.TabIndex = 2;
             this.btn_Transacition.Text = "Transaction Record";
             this.btn_Transacition.UseVisualStyleBackColor = true;
+            this.btn_Transacition.Click += new System.EventHandler(this.btn_Transacition_Click);
             // 
             // btn_Report
             // 
