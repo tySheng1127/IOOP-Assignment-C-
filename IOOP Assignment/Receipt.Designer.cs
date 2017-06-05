@@ -34,15 +34,17 @@
             this.lb_currentdt = new System.Windows.Forms.Label();
             this.rtb_Change = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_InvoiceNo = new System.Windows.Forms.Label();
             this.rtb_GST = new System.Windows.Forms.RichTextBox();
             this.lb_Cashier = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_InvoiceNo = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtb_receipt
             // 
-            this.rtb_receipt.Location = new System.Drawing.Point(12, 165);
+            this.rtb_receipt.Location = new System.Drawing.Point(12, 162);
             this.rtb_receipt.Name = "rtb_receipt";
             this.rtb_receipt.ReadOnly = true;
             this.rtb_receipt.Size = new System.Drawing.Size(308, 206);
@@ -53,7 +55,7 @@
             // 
             this.lb_Receipt.AutoSize = true;
             this.lb_Receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_Receipt.Location = new System.Drawing.Point(65, 9);
+            this.lb_Receipt.Location = new System.Drawing.Point(65, 4);
             this.lb_Receipt.Name = "lb_Receipt";
             this.lb_Receipt.Size = new System.Drawing.Size(202, 20);
             this.lb_Receipt.TabIndex = 1;
@@ -61,7 +63,7 @@
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(125, 536);
+            this.btn_ok.Location = new System.Drawing.Point(115, 543);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 23);
             this.btn_ok.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             this.lb_currentdt.AutoSize = true;
             this.lb_currentdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_currentdt.Location = new System.Drawing.Point(107, 127);
+            this.lb_currentdt.Location = new System.Drawing.Point(103, 120);
             this.lb_currentdt.Name = "lb_currentdt";
             this.lb_currentdt.Size = new System.Drawing.Size(50, 13);
             this.lb_currentdt.TabIndex = 3;
@@ -93,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 39);
+            this.label1.Location = new System.Drawing.Point(57, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(210, 78);
             this.label1.TabIndex = 5;
@@ -102,18 +104,18 @@
     "687380";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lb_InvoiceNo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Invoice No :";
+            this.lb_InvoiceNo.AutoSize = true;
+            this.lb_InvoiceNo.Location = new System.Drawing.Point(52, 132);
+            this.lb_InvoiceNo.Name = "lb_InvoiceNo";
+            this.lb_InvoiceNo.Size = new System.Drawing.Size(65, 13);
+            this.lb_InvoiceNo.TabIndex = 6;
+            this.lb_InvoiceNo.Text = "Invoice No :";
             // 
             // rtb_GST
             // 
-            this.rtb_GST.Location = new System.Drawing.Point(13, 448);
+            this.rtb_GST.Location = new System.Drawing.Point(13, 446);
             this.rtb_GST.Name = "rtb_GST";
             this.rtb_GST.ReadOnly = true;
             this.rtb_GST.Size = new System.Drawing.Size(307, 54);
@@ -123,7 +125,7 @@
             // lb_Cashier
             // 
             this.lb_Cashier.AutoSize = true;
-            this.lb_Cashier.Location = new System.Drawing.Point(12, 505);
+            this.lb_Cashier.Location = new System.Drawing.Point(12, 512);
             this.lb_Cashier.Name = "lb_Cashier";
             this.lb_Cashier.Size = new System.Drawing.Size(42, 13);
             this.lb_Cashier.TabIndex = 8;
@@ -131,11 +133,21 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_InvoiceNo);
+            this.groupBox1.Controls.Add(this.lb_InvoiceNo);
             this.groupBox1.Location = new System.Drawing.Point(5, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 521);
+            this.groupBox1.Size = new System.Drawing.Size(324, 528);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            // 
+            // txt_InvoiceNo
+            // 
+            this.txt_InvoiceNo.Location = new System.Drawing.Point(124, 130);
+            this.txt_InvoiceNo.Name = "txt_InvoiceNo";
+            this.txt_InvoiceNo.ReadOnly = true;
+            this.txt_InvoiceNo.Size = new System.Drawing.Size(61, 20);
+            this.txt_InvoiceNo.TabIndex = 7;
             // 
             // Receipt
             // 
@@ -144,7 +156,6 @@
             this.ClientSize = new System.Drawing.Size(332, 571);
             this.Controls.Add(this.lb_Cashier);
             this.Controls.Add(this.rtb_GST);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtb_Change);
             this.Controls.Add(this.lb_currentdt);
@@ -154,6 +165,8 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Receipt";
             this.Text = "Receipt";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,9 +180,10 @@
         private System.Windows.Forms.Label lb_currentdt;
         private System.Windows.Forms.RichTextBox rtb_Change;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_InvoiceNo;
         private System.Windows.Forms.RichTextBox rtb_GST;
         private System.Windows.Forms.Label lb_Cashier;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_InvoiceNo;
     }
 }

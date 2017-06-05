@@ -129,6 +129,7 @@
             this.btn_Report.TabIndex = 5;
             this.btn_Report.Text = "Generate Report";
             this.btn_Report.UseVisualStyleBackColor = true;
+            this.btn_Report.Click += new System.EventHandler(this.btn_Report_Click);
             // 
             // timer1
             // 

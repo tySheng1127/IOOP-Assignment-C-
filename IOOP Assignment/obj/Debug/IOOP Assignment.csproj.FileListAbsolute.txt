@@ -32,3 +32,4 @@ C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignme
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.LoggedSession.resources
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.TransactionRecord.resources
 C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.TransactionList.resources
+C:\Users\User\Desktop\IOOP Assignment C#\IOOP Assignment\obj\Debug\IOOP_Assignment.Report.resources

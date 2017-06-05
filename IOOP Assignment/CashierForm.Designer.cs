@@ -412,6 +412,7 @@
             this.btn_CReport.TabIndex = 26;
             this.btn_CReport.Text = "Cashier Report";
             this.btn_CReport.UseVisualStyleBackColor = true;
+            this.btn_CReport.Click += new System.EventHandler(this.btn_CReport_Click);
             // 
             // lbItem
             // 

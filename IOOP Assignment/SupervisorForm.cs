@@ -85,5 +85,11 @@ namespace IOOP_Assignment
             TransactionRecord tr = new TransactionRecord();
             tr.ShowDialog();
         }
+
+        private void btn_Report_Click(object sender, EventArgs e)
+        {
+            Report rp = new Report();
+            rp.ShowDialog();
+        }
     }
 }

@@ -9,10 +9,12 @@ namespace IOOP_Assignment
     public class CurrentUser
     {
         string username, password;
+        int InvoiceNo;
 
         public CurrentUser() {
             username = "";
             password = "";
+            InvoiceNo = 1;
         }
         public string userName
         {
@@ -23,6 +25,11 @@ namespace IOOP_Assignment
         {
             set { password = value; }
             get { return password; }
+        }
+        public int IN
+        {
+            set { InvoiceNo = value; }
+            get { return InvoiceNo; }
         }
     }
 }

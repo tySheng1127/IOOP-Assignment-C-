@@ -31,6 +31,7 @@ namespace IOOP_Assignment
             cu = currentUser;
             x = 1;
             total = 0;
+
             rtbDetails.Text = "Logged in as: "+ cu.userName+"\n Logged in since: "+time;
             selectedItem = new Item();
             Math.Round(change, 2);
@@ -339,8 +340,9 @@ namespace IOOP_Assignment
                 MessageBox.Show("Payment must be made before generate receipt!");
             }
             else{
-            Receipt rc = new Receipt(cu,list, paid, bill);
-            rc.ShowDialog();
+                Receipt rc = new Receipt(cu,list, paid, bill);
+                cu.IN++;
+                rc.ShowDialog();
             }
         }
 
@@ -353,6 +355,12 @@ namespace IOOP_Assignment
         {
             TransactionList tl = new TransactionList(cu);
             tl.ShowDialog();
+        }
+
+        private void btn_CReport_Click(object sender, EventArgs e)
+        {
+            Report rp = new Report();
+            rp.ShowDialog();
         }
         
 

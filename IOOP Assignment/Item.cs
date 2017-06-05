@@ -15,6 +15,7 @@ namespace IOOP_Assignment
         double itemGST;
         double OriginalPrice;
         string category;
+     
 
 
         public Item() {
@@ -25,6 +26,7 @@ namespace IOOP_Assignment
             product = "error";
             OriginalPrice = 2.00;
             category = "S";
+    
 
         }
 
@@ -65,5 +67,6 @@ namespace IOOP_Assignment
             get { return category; }
             set { category = value; }
         }
+        
     }
 }
