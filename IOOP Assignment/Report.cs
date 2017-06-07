@@ -50,5 +50,11 @@ namespace IOOP_Assignment
             this.Close();
         }
 
+        private void Report_Load(object sender, EventArgs e)
+        {
+
+          
+        }
+
     }
 }

@@ -13,16 +13,14 @@ namespace IOOP_Assignment
 {
     public partial class LoginScreen : Form
     {
-        public CurrentUser cu;
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
-        SqlDataAdapter sda;
-        SqlCommand cmd;
+        public Employee cu;
+        DatabaseManagement dm = new DatabaseManagement();
         
         public LoginScreen()
         {
-            cu = new CurrentUser();
+            cu = new Employee();
             InitializeComponent();
-            txtPassword.PasswordChar = '*';
+            txtPassword.PasswordChar = '*';//protect user's password when input
         }
 
         public void ShowForm(){
@@ -32,56 +30,16 @@ namespace IOOP_Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            con.Open();
-            cmd = new SqlCommand("select * from Loginlist where username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'and JobTitle='Supervisor'", con);
-            sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                DateTime time = DateTime.Now;
-                cmd = new SqlCommand("insert into LoggedSession(Username,LoginTime) values(@name,@login)", con);
-                cmd.Parameters.AddWithValue("@name", txtUsername.Text);
-                cmd.Parameters.AddWithValue("@login", time);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                cu.userName = txtUsername.Text;
-                this.Hide();
-                SupervisorForm sf = new SupervisorForm(cu);
-                sf.ShowDialog();
-            }
-            else
-            {
-                cmd = new SqlCommand("select username,password from Loginlist where username='" + txtUsername.Text + "'and password='" + txtPassword.Text + "'", con);
-                sda = new SqlDataAdapter(cmd);
-                sda.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-    
-                    DateTime time = DateTime.Now;
-                    cmd = new SqlCommand("insert into LoggedSession(Username,LoginTime) values(@name,@login)", con);
-                    cmd.Parameters.AddWithValue("@name", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@login", time);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    cu.userName = txtUsername.Text;
-                    this.Hide();
-                    CashierForm cf = new CashierForm(cu);
-                    cf.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Login please check username and password");
-                }
-  
-            }
+            //read data from Loginlist table to test whether the username and password input same as data from database
+            cu.userName = txtUsername.Text;
+            cu.passWord = txtPassword.Text;
+            dm.Login(cu);
             
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Dispose();//close the program
         }
 
 

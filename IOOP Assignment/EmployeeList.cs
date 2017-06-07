@@ -14,8 +14,10 @@ namespace IOOP_Assignment
     public partial class EmployeeList : Form
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
-        SqlCommand cmd;
-        SqlDataAdapter adapt;
+        List<Employee> le = new List<Employee>();
+        Employee el;
+        DatabaseManagement dm = new DatabaseManagement();
+
         public EmployeeList()
         {
             InitializeComponent();
@@ -24,17 +26,18 @@ namespace IOOP_Assignment
 
         private void DisplayData()//display data in data grid view
         {
-            con.Open();
-            DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select * from Employee", con);
-            adapt.Fill(dt);
-            DGV_EmployeeList.DataSource = dt;
-            con.Close();
+            List<Employee> le = dm.ViewAllEmployee();
+            foreach (Employee e in le)
+            {
+                object[] cellvalues = { e.EmployeeID, e.Username, e.Realname, e.IC, e.Gender, e.Dob, e.ContactNo, e.Address, e.Bankinfo, e.Password, e.Jobtitle };
+                DGV_EmployeeList.Rows.Add(cellvalues);
+            }
         }
 
         //Clear Data in Manage Employee 
         private void ClearData()
         {
+            DGV_EmployeeList.Rows.Clear();
             txt_ID.Text = "";
             txt_username.Text = "";
             txt_Realname.Text = "";
@@ -52,50 +55,41 @@ namespace IOOP_Assignment
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//close this form
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
             if (txt_ID.Text!=""&&txt_username.Text!=""&&txt_Realname.Text!=""&&txt_NRIC.Text!=""&&cb_Gender.Text!=""&&txt_DOB.Text!=""&&txt_Contact.Text!=""&&txt_Address.Text!=""&&txt_Bank.Text!=""&&txt_Password.Text!=""&&cb_Jobtitle.Text!="")
             {
-                cmd = new SqlCommand("update Employee set username=@usrname, realName=@name, NRIC=@IC,Gender=@gender,DoB=@dob,ContactNumber=@contact,Address=@address,BankInfo=@bank,password=@pw,Jobtitle=@title where EmployeeID=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", txt_ID.Text);
-                cmd.Parameters.AddWithValue("@usrname", txt_username.Text);
-                cmd.Parameters.AddWithValue("@name", txt_Realname.Text);
-                cmd.Parameters.AddWithValue("@IC", txt_NRIC.Text);
-                cmd.Parameters.AddWithValue("@gender", cb_Gender.Text);
-                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(txt_DOB.Text));
-                cmd.Parameters.AddWithValue("@contact", txt_Contact.Text);
-                cmd.Parameters.AddWithValue("@address", txt_Address.Text);
-                cmd.Parameters.AddWithValue("@bank", txt_Bank.Text);
-                cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
-                cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                cmd = new SqlCommand("update Loginlist set password=@pw,JobTitle=@title where username = @name", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@name", txt_username.Text);
-                cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
-                cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
+                Employee el = new Employee();
+                el.EmployeeID = txt_ID.Text;
+                el.Username = txt_username.Text;
+                el.Realname = txt_Realname.Text;
+                el.IC = txt_NRIC.Text;
+                el.Gender = cb_Gender.Text;
+                el.Dob =  txt_DOB.Text;
+                el.ContactNo = txt_Contact.Text;
+                el.Address = txt_Address.Text;
+                el.Bankinfo = txt_Bank.Text;
+                el.Password = txt_Password.Text;
+                el.Jobtitle = cb_Jobtitle.Text;
+                dm.UpdateEmployee(el);
                 MessageBox.Show("EmployeeList is updated !");
-                DisplayData();
                 ClearData();
+                DisplayData();
+
+                
             }
             else
-            {
+            {//if textbox is blank , this message will be shown
                 MessageBox.Show("Please select the Employee to update !");
             }
         }
 
         private void DGV_EmployeeList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //when double click the data in data grid view, the item will pass to textbox
             txt_ID.Text = DGV_EmployeeList.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_username.Text = DGV_EmployeeList.Rows[e.RowIndex].Cells[1].Value.ToString();
             txt_Realname.Text = DGV_EmployeeList.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -114,51 +108,23 @@ namespace IOOP_Assignment
         {
             if (txt_ID.Text != "" && txt_username.Text != "" && txt_Realname.Text != "" && txt_NRIC.Text != "" && cb_Gender.Text != "" && txt_DOB.Text != "" && txt_Contact.Text != "" && txt_Address.Text != "" && txt_Bank.Text != "" && txt_Password.Text != "" && cb_Jobtitle.Text != "")
             {
-                cmd = new SqlCommand("insert into Employee(EmployeeID,username,realName,NRIC,Gender,DoB,ContactNumber,Address,BankInfo,password,JobTitle) values(@id,@usrname,@name,@IC,@gender,@dob,@contact,@address,@bank,@pw,@title)", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", txt_ID.Text);
-                cmd.Parameters.AddWithValue("@usrname", txt_username.Text);
-                cmd.Parameters.AddWithValue("@name", txt_Realname.Text);
-                cmd.Parameters.AddWithValue("@IC", txt_NRIC.Text);
-                cmd.Parameters.AddWithValue("@gender", cb_Gender.Text);
-                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(txt_DOB.Text));
-                cmd.Parameters.AddWithValue("@contact", txt_Contact.Text);
-                cmd.Parameters.AddWithValue("@address", txt_Address.Text);
-                cmd.Parameters.AddWithValue("@bank", txt_Bank.Text);
-                cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
-                cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
+                el = new Employee(txt_ID.Text, txt_username.Text, txt_Realname.Text, txt_NRIC.Text, cb_Gender.Text, txt_DOB.Text, txt_Contact.Text, txt_Address.Text, txt_Bank.Text, txt_Password.Text, cb_Jobtitle.Text);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                }
-                catch
-                {
-                    MessageBox.Show("EmployeeID already exists!");
-                }
-                con.Close();
-
-                cmd = new SqlCommand("insert into Loginlist(username,password,JobTitle) values(@name,@pw,@title)", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@name", txt_username.Text);
-                cmd.Parameters.AddWithValue("@pw", txt_Password.Text);
-                cmd.Parameters.AddWithValue("@title", cb_Jobtitle.Text);
-                try
-                {
-                    cmd.ExecuteNonQuery();
+                    dm.InsertEmployee(el);//insert new employee to database
                     MessageBox.Show("New Employee is inserted !");
-                    DisplayData();
                     ClearData();
+                    DisplayData();
+                                       
                 }
                 catch
-                {
-                    MessageBox.Show("Username already exists!");
+                {//if employee name aldready in the table , this message will be shown
+                    MessageBox.Show("EmployeeID or Username already existed!");
                 }
-                con.Close();
-
-                
+ 
             }
             else
-            {
+            {//if textbox is blank , this message will be shown
                 MessageBox.Show("Please fill in all the details !");
             }
         }
@@ -167,24 +133,14 @@ namespace IOOP_Assignment
         {
             if (txt_ID.Text != "")
             {
-                cmd = new SqlCommand("delete from Employee where EmployeeID=@id",con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", txt_ID.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                cmd = new SqlCommand("delete from Loginlist where username=@name", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@name", txt_username.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
+                dm.DeleteEmployee(el);//delete the employee from database
                 MessageBox.Show("Record deleted !");
-                DisplayData();
                 ClearData();
+                DisplayData();
+                
             }
             else
-            {
+            {//if no employee selected, this message will be shown
                 MessageBox.Show("Please select the item to delete !");
             }
         }

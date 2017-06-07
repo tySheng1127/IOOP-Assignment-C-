@@ -107,6 +107,7 @@
             this.Controls.Add(this.DGV_report);
             this.Name = "Report";
             this.Text = "Report";
+            this.Load += new System.EventHandler(this.Report_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_report)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,14 +15,14 @@ namespace IOOP_Assignment
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlCommand cmd;
-        CurrentUser cu = new CurrentUser();
+        Employee cu = new Employee();
         DateTime time = DateTime.Now;
 
-        public SupervisorForm(CurrentUser currentuser)
+        public SupervisorForm(Employee currentuser)
         {
             InitializeComponent();
             cu = currentuser;
-            rtb_detail.Text = "Logged in as: " + cu.userName + "\n Logged in since: " + time;
+            rtb_detail.Text = cu.toString() + time; //show the current user's name and log in time who using the system
 
         }
 
@@ -38,7 +38,7 @@ namespace IOOP_Assignment
             cmd.Parameters.AddWithValue("@logout", time);
             cmd.ExecuteNonQuery();
             con.Close();
-            this.Hide();
+            this.Dispose();
             LoginScreen ls = new LoginScreen();
             ls.ShowForm();
         }

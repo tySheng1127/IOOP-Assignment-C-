@@ -19,22 +19,23 @@ namespace IOOP_Assignment
         private int x;
         double total;
         Item selectedItem;
-        CurrentUser cu = new CurrentUser();
+        Employee cu = new Employee();
         List<Item> list = new List<Item>();
         double paid, bill,change;
         DateTime time = DateTime.Now;
-        
+        DatabaseManagement dm = new DatabaseManagement();
 
-        public CashierForm(CurrentUser currentUser)
+
+        public CashierForm(Employee currentUser)
         {
             InitializeComponent();
             cu = currentUser;
             x = 1;
             total = 0;
 
-            rtbDetails.Text = "Logged in as: "+ cu.userName+"\n Logged in since: "+time;
+            rtbDetails.Text = cu.toString() + time; //show the current user's name and log in time who using the system
             selectedItem = new Item();
-            Math.Round(change, 2);
+            Math.Round(change, 2);// round off the changes to 2 decimal places
           
         }
 
@@ -46,20 +47,14 @@ namespace IOOP_Assignment
  
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DateTime time = DateTime.Now;
-            cmd = new SqlCommand("insert into LoggedSession(Username,LogoutTime) values(@name,@logout)", con);
-            con.Open();
-            cmd.Parameters.AddWithValue("@name", cu.userName);
-            cmd.Parameters.AddWithValue("@logout", time);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            LoginScreen ls = new LoginScreen();
-            this.Dispose();
-            ls.ShowDialog();
+            dm.Logout(cu);
+            // LoginScreen ls = new LoginScreen();
+            this.Dispose();//back to login screen
+            // ls.ShowDialog();
         }
 
 
-
+        //details of the items sell
         private void btn_pen_Click(object sender, EventArgs e)
         {
             selectedItem = new Item();
@@ -254,10 +249,10 @@ namespace IOOP_Assignment
 
         private void btn_Remove_Click(object sender, EventArgs e)
         {
-            // if index == 0, do nothing
+            //delete the listbox and transaction sales history 
             if (lbItem.SelectedIndex >= 0)
             {
-                cmd = new SqlCommand("delete from Transaction where ProductID=@id", con);
+                cmd = new SqlCommand("delete from [Transaction] where ProductID=@id", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@id",list[lbItem.SelectedIndex].product);
                 cmd.ExecuteNonQuery();
@@ -281,24 +276,13 @@ namespace IOOP_Assignment
             }
             else
             {
- 
+                // display the item that customer buy in list box 
                 selectedItem.quantity = int.Parse(txtQuantity.Text);
                 lbItem.Items.Add(x.ToString() + "                   "+selectedItem.product+"                   " + selectedItem.description + "                     " + txtQuantity.Text +"          "+ selectedItem.price);
-                cmd = new SqlCommand("update Product set StockAmount = StockAmount - @amount where ProductID = '" + selectedItem.product + "'", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@amount", selectedItem.quantity);
-                cmd.ExecuteNonQuery();   
-                cmd = new SqlCommand("insert into [Transaction](ProductID,Quantity,Price,EmployeeInCharge,Type) values(@product,@quantity,@price,@incharge,'Sales')", con);
-                cmd.Parameters.AddWithValue("@product", selectedItem.product);
-                cmd.Parameters.AddWithValue("@quantity", selectedItem.quantity);
-                cmd.Parameters.AddWithValue("@price", selectedItem.price);
-                cmd.Parameters.AddWithValue("@incharge", cu.userName);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                
+                dm.InsertTransaction(selectedItem,cu);
                 x++;
                 total += selectedItem.price * int.Parse(txtQuantity.Text);
-                rtbTotal.Text = total.ToString();
+                rtbTotal.Text = total.ToString();//total up the price and show in rich text box 
                 list.Add(selectedItem);
                 selectedItem = new Item();
 
@@ -309,23 +293,22 @@ namespace IOOP_Assignment
         private void btn_Changes_Click(object sender, EventArgs e)
         {
             if (txtPrepaid.Text != "")
-            {
+            {//calculate the changes 
                  paid = double.Parse(txtPrepaid.Text);
                  bill = double.Parse(rtbTotal.Text);
-                 if (paid > bill)
+                 if (paid >= bill)
                  {
                      change = paid - bill;
                      txtChange.Text = change.ToString();
-                     
                  }
                  else
-                 {
+                 {//if insufficient cash paid by customer , system will give warning
                      MessageBox.Show("Insufficient Cash for payment !");
                  }
 
             }
             else
-            {
+            {//if no payment made, changes cant be calculated
                 MessageBox.Show("No Payment made !");
             }
          
@@ -336,34 +319,43 @@ namespace IOOP_Assignment
         {
             
             if (txtChange.Text == "")
-            {
+            {//if no payment made, no receipt cant be generated
                 MessageBox.Show("Payment must be made before generate receipt!");
             }
             else{
+                //generate receipt
                 Receipt rc = new Receipt(cu,list, paid, bill);
                 cu.IN++;
+                cleardata();
                 rc.ShowDialog();
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //digital clock in system
             lb_TimeNow.Text = DateTime.Now.ToString("yyyy/MM/dd  " + "HH:mm:ss");
         }
 
         private void btn_Transactionlist_Click(object sender, EventArgs e)
         {
+            //show transaction history by clicking this button
             TransactionList tl = new TransactionList(cu);
             tl.ShowDialog();
         }
 
         private void btn_CReport_Click(object sender, EventArgs e)
         {
+            //show report by clicking this button
             Report rp = new Report();
             rp.ShowDialog();
         }
-        
 
+        private void cleardata()
+        {
+            //clear the listed item in list box 
+            lbItem.Text = "";
+        }
 
     }
 }

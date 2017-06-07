@@ -31,12 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.DGV_logged = new System.Windows.Forms.DataGridView();
             this.payRollBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSetLoginScreen = new IOOP_Assignment.DatabaseDataSetLoginScreen();
             this.btn_Back = new System.Windows.Forms.Button();
-            this.payRollTableAdapter = new IOOP_Assignment.DatabaseDataSetLoginScreenTableAdapters.PayRollTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_logged)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.payRollBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetLoginScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // DGV_logged
@@ -50,12 +47,6 @@
             // payRollBindingSource
             // 
             this.payRollBindingSource.DataMember = "PayRoll";
-            this.payRollBindingSource.DataSource = this.databaseDataSetLoginScreen;
-            // 
-            // databaseDataSetLoginScreen
-            // 
-            this.databaseDataSetLoginScreen.DataSetName = "DatabaseDataSetLoginScreen";
-            this.databaseDataSetLoginScreen.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btn_Back
             // 
@@ -66,10 +57,6 @@
             this.btn_Back.Text = "Back";
             this.btn_Back.UseVisualStyleBackColor = true;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
-            // 
-            // payRollTableAdapter
-            // 
-            this.payRollTableAdapter.ClearBeforeFill = true;
             // 
             // LoggedSession
             // 
@@ -82,7 +69,6 @@
             this.Text = "LoggedSession";
             ((System.ComponentModel.ISupportInitialize)(this.DGV_logged)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payRollBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetLoginScreen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,8 +77,8 @@
 
         private System.Windows.Forms.DataGridView DGV_logged;
         private System.Windows.Forms.Button btn_Back;
-        private DatabaseDataSetLoginScreen databaseDataSetLoginScreen;
+
         private System.Windows.Forms.BindingSource payRollBindingSource;
-        private DatabaseDataSetLoginScreenTableAdapters.PayRollTableAdapter payRollTableAdapter;
+
     }
 }

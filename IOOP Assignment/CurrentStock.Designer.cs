@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DGV_Stock = new System.Windows.Forms.DataGridView();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reorderThresholdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSet1 = new IOOP_Assignment.DatabaseDataSet1();
-            this.productTableAdapter = new IOOP_Assignment.DatabaseDataSet1TableAdapters.ProductTableAdapter();
             this.btn_back = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cb_category = new System.Windows.Forms.ComboBox();
@@ -56,79 +54,61 @@
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.txt_ID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnReorder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV_Stock
             // 
-            this.DGV_Stock.AutoGenerateColumns = false;
             this.DGV_Stock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIDDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.stockAmountDataGridViewTextBoxColumn,
-            this.reorderThresholdDataGridViewTextBoxColumn});
-            this.DGV_Stock.DataSource = this.productBindingSource;
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
             this.DGV_Stock.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DGV_Stock.Location = new System.Drawing.Point(12, 12);
             this.DGV_Stock.Name = "DGV_Stock";
             this.DGV_Stock.Size = new System.Drawing.Size(644, 393);
             this.DGV_Stock.TabIndex = 0;
-            this.DGV_Stock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Stock_CellContentClick);
+            this.DGV_Stock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Stock_CellContentClick_1);
             // 
-            // productIDDataGridViewTextBoxColumn
+            // Column1
             // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.Column1.HeaderText = "ProductID";
+            this.Column1.Name = "Column1";
             // 
-            // nameDataGridViewTextBoxColumn
+            // Column2
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
             // 
-            // categoryDataGridViewTextBoxColumn
+            // Column3
             // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.Column3.HeaderText = "Category";
+            this.Column3.Name = "Column3";
             // 
-            // priceDataGridViewTextBoxColumn
+            // Column4
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.Column4.HeaderText = "Price";
+            this.Column4.Name = "Column4";
             // 
-            // stockAmountDataGridViewTextBoxColumn
+            // Column5
             // 
-            this.stockAmountDataGridViewTextBoxColumn.DataPropertyName = "StockAmount";
-            this.stockAmountDataGridViewTextBoxColumn.HeaderText = "StockAmount";
-            this.stockAmountDataGridViewTextBoxColumn.Name = "stockAmountDataGridViewTextBoxColumn";
+            this.Column5.HeaderText = "StockAmount";
+            this.Column5.Name = "Column5";
             // 
-            // reorderThresholdDataGridViewTextBoxColumn
+            // Column6
             // 
-            this.reorderThresholdDataGridViewTextBoxColumn.DataPropertyName = "ReorderThreshold";
-            this.reorderThresholdDataGridViewTextBoxColumn.HeaderText = "ReorderThreshold";
-            this.reorderThresholdDataGridViewTextBoxColumn.Name = "reorderThresholdDataGridViewTextBoxColumn";
+            this.Column6.HeaderText = "ReorderThreshold";
+            this.Column6.Name = "Column6";
             // 
             // productBindingSource
             // 
             this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.databaseDataSet1;
-            // 
-            // databaseDataSet1
-            // 
-            this.databaseDataSet1.DataSetName = "DatabaseDataSet1";
-            this.databaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
             // 
             // btn_back
             // 
@@ -168,8 +148,8 @@
             // 
             this.cb_category.FormattingEnabled = true;
             this.cb_category.Items.AddRange(new object[] {
-            "GST",
-            "NON GST"});
+            "GST(S)",
+            "NON-GST(Z)"});
             this.cb_category.Location = new System.Drawing.Point(141, 123);
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(145, 21);
@@ -183,7 +163,6 @@
             this.btn_Delete.TabIndex = 14;
             this.btn_Delete.Text = "Delete";
             this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Insert
             // 
@@ -203,7 +182,7 @@
             this.btn_Update.TabIndex = 12;
             this.btn_Update.Text = "Update";
             this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click_1);
             // 
             // label6
             // 
@@ -294,11 +273,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ProductID";
             // 
+            // btnReorder
+            // 
+            this.btnReorder.Location = new System.Drawing.Point(201, 425);
+            this.btnReorder.Name = "btnReorder";
+            this.btnReorder.Size = new System.Drawing.Size(129, 33);
+            this.btnReorder.TabIndex = 4;
+            this.btnReorder.Text = "Show Items to Reorder";
+            this.btnReorder.UseVisualStyleBackColor = true;
+            this.btnReorder.Click += new System.EventHandler(this.btnReorder_Click);
+            // 
             // CurrentStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 470);
+            this.Controls.Add(this.btnReorder);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.DGV_Stock);
             this.Controls.Add(this.groupBox1);
@@ -306,7 +296,6 @@
             this.Text = "CurrentStock";
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -316,9 +305,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DGV_Stock;
-        private DatabaseDataSet1 databaseDataSet1;
+    
         private System.Windows.Forms.BindingSource productBindingSource;
-        private DatabaseDataSet1TableAdapters.ProductTableAdapter productTableAdapter;
+
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
@@ -342,6 +331,13 @@
         private System.Windows.Forms.TextBox txt_ID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btnReorder;
 
     }
 }

@@ -16,6 +16,18 @@ namespace IOOP_Assignment
             password = "";
             InvoiceNo = 1;
         }
+        public CurrentUser(string Username, string Password)
+        {
+            username = Username;
+            passWord = Password;
+        }
+
+        public CurrentUser(string Username, string Password, int IN)
+        {
+            username = Username;
+            passWord = Password;
+            InvoiceNo = IN;
+        }
         public string userName
         {
             set { username = value; }
@@ -30,6 +42,10 @@ namespace IOOP_Assignment
         {
             set { InvoiceNo = value; }
             get { return InvoiceNo; }
+        }
+
+        public virtual string toString() {
+            return "Logged in as: " + userName;
         }
     }
 }

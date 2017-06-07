@@ -14,10 +14,11 @@ namespace IOOP_Assignment
 {
     public partial class CurrentStock : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
-        SqlCommand cmd;
-        SqlDataAdapter adapt;
+        
+        List<Stock> ls = new List<Stock>();
         CurrentUser cu = new CurrentUser();
+        DatabaseManagement dm = new DatabaseManagement();
+        Stock s;
 
         public CurrentStock(CurrentUser currentuser)
         {
@@ -28,17 +29,19 @@ namespace IOOP_Assignment
 
         private void DisplayData()//display data in data grid view
         {
-            con.Open();
-            DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select * from Product", con);
-            adapt.Fill(dt);
-            DGV_Stock.DataSource = dt;
-            con.Close();
+            ls = dm.ViewAllStock();
+            foreach (Stock s in ls)
+            {
+                object[] cellvalues = { s.product,s.Pname,s.Pcategory,s.Pprice,s.Pamount,s.Preorder};
+                DGV_Stock.Rows.Add(cellvalues);
+            }
         }
+
 
         //Clear Data in Product Manage 
         private void ClearData()
         {
+            DGV_Stock.Rows.Clear();
             txt_ID.Text = "";
             txt_Name.Text = "";
             cb_category.Text = "";
@@ -49,80 +52,82 @@ namespace IOOP_Assignment
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//close this form
         }
 
         private void btn_Insert_Click(object sender, EventArgs e)
         {
+            // all textbox must be filled
             if (txt_ID.Text != "" && txt_Name.Text != "" && cb_category.Text != "" && txt_Price.Text != "" && txt_Amount.Text != "" && txt_Reorder.Text != "")
             {
-                cmd = new SqlCommand("insert into Product(ProductID,Name,Category,Price,StockAmount,ReorderThreshold) values(@id,@name,@category,@price,@amount,@reorder)",con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", txt_ID.Text);
-                cmd.Parameters.AddWithValue("@name", txt_Name.Text);
-                cmd.Parameters.AddWithValue("@category", cb_category.Text);
-                cmd.Parameters.AddWithValue("@price", txt_Price.Text);
-                cmd.Parameters.AddWithValue("@amount", txt_Amount.Text);
-                cmd.Parameters.AddWithValue("@reorder", txt_Reorder.Text);
+                s = new Stock(txt_ID.Text,txt_Name.Text,cb_category.Text,double.Parse(txt_Price.Text),int.Parse(txt_Amount.Text),int.Parse(txt_Reorder.Text));
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    cmd = new SqlCommand("insert into [Transaction](ProductID,Quantity,Price,EmployeeInCharge,Type) values(@product,@quantity,@price,@incharge,'Purchase')", con);
-                    cmd.Parameters.AddWithValue("@product", txt_ID.Text);
-                    cmd.Parameters.AddWithValue("@quantity", txt_Amount.Text);
-                    cmd.Parameters.AddWithValue("@price", txt_Price.Text);
-                    cmd.Parameters.AddWithValue("@incharge", cu.userName);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    dm.InsertStock(s); 
                     MessageBox.Show("Product is inserted !");
-                    DisplayData();
                     ClearData();
+                    DisplayData();
+                    
                 }
                 catch
-                {
+                {//if product name already existed, this message will be shown
                     MessageBox.Show("Product already existed !");
                 }
-                
 
             }
             else
-            {
+            {//if any textbox is empty, this message will be shown
                 MessageBox.Show("Please fill in all the details!");  
             }
         }
 
-        private void btn_Update_Click(object sender, EventArgs e)
+       
+        
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (txt_ID.Text != "")
+            {
+                //delete the item 
+                dm.DeleteStock(s);
+                MessageBox.Show("Record deleted !");
+                ClearData();
+                DisplayData();
+                
+            }
+            else
+            {// if no item selected , this message will be shown
+                MessageBox.Show("Please select the item to delete !");
+            }
+           
+        }
+
+        private void btn_Update_Click_1(object sender, EventArgs e)
         {
             if (txt_ID.Text != "" && txt_Name.Text != "" && cb_category.Text != "" && txt_Price.Text != "" && txt_Amount.Text != "" && txt_Reorder.Text != "")
             {
-                cmd = new SqlCommand("update Product set Name=@name,Category=@category,Price=@price,StockAmount=StockAmount + @Amount,ReorderThreshold=@reorder where ProductID=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", txt_ID.Text);
-                cmd.Parameters.AddWithValue("@name", txt_Name.Text);
-                cmd.Parameters.AddWithValue("@category", cb_category.Text);
-                cmd.Parameters.AddWithValue("@price", txt_Price.Text);
-                cmd.Parameters.AddWithValue("@amount", txt_Amount.Text);
-                cmd.Parameters.AddWithValue("@reorder", txt_Reorder.Text);
-                cmd.ExecuteNonQuery();
-                cmd = new SqlCommand("insert into [Transaction](ProductID,Quantity,Price,EmployeeInCharge,Type) values(@product,@quantity,@price,@incharge,'Purchase')", con);
-                cmd.Parameters.AddWithValue("@product", txt_ID.Text);
-                cmd.Parameters.AddWithValue("@quantity", txt_Amount.Text);
-                cmd.Parameters.AddWithValue("@price", txt_Price.Text);
-                cmd.Parameters.AddWithValue("@incharge", cu.userName);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                //update the product 
+                Stock s = new Stock();
+                s.product = txt_ID.Text;
+                s.Pname = txt_Name.Text;
+                s.Pcategory = cb_category.Text;
+                s.Pprice = double.Parse(txt_Price.Text);
+                s.Pamount = int.Parse(txt_Amount.Text);
+                s.Preorder = int.Parse(txt_Reorder.Text);
+                dm.UpdateStock(s, cu);
                 MessageBox.Show("Product is updated !");
-                DisplayData();
                 ClearData();
+                DisplayData();
+
             }
             else
             {
+                // if no item selected , this message will be shown
                 MessageBox.Show("Please select the item to update !");
             }
         }
 
-        //when double click the data in data grid view, the item will pass to textbox
-        private void DGV_Stock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+        private void DGV_Stock_CellContentClick_1(object sender, DataGridViewCellEventArgs e)//when double click the data in data grid view, the item will pass to textbox
         {
             txt_ID.Text = DGV_Stock.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_Name.Text = DGV_Stock.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -132,24 +137,17 @@ namespace IOOP_Assignment
             txt_Reorder.Text = DGV_Stock.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
-        private void btn_Delete_Click(object sender, EventArgs e)
+        private void btnReorder_Click(object sender, EventArgs e)
         {
-            if (txt_ID.Text != "")
+            List<string> reorderList = new List<string>();
+            foreach (Stock s in ls)
             {
-                cmd = new SqlCommand("delete from Product where ProductID=@ID", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", txt_ID.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Record deleted !");
-                DisplayData();
-                ClearData();
+                if(s.Pamount <= s.Preorder){
+                    reorderList.Add(s.Pname);
+                }
             }
-            else
-            {
-                MessageBox.Show("Please select the item to delete !");
-            }
-           
+            string combindedString = string.Join("\n", reorderList.ToArray());
+            MessageBox.Show(combindedString, "Items to reorder");
         }
 
     }

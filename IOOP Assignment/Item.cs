@@ -15,7 +15,7 @@ namespace IOOP_Assignment
         double itemGST;
         double OriginalPrice;
         string category;
-     
+
 
 
         public Item() {

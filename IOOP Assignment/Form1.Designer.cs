@@ -35,10 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.databaseDataSetLoginScreen = new IOOP_Assignment.DatabaseDataSetLoginScreen();
+
             this.payRollBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.payRollTableAdapter = new IOOP_Assignment.DatabaseDataSetLoginScreenTableAdapters.PayRollTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetLoginScreen)).BeginInit();
+ 
+      
             ((System.ComponentModel.ISupportInitialize)(this.payRollBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,17 +96,16 @@
             // 
             // databaseDataSetLoginScreen
             // 
-            this.databaseDataSetLoginScreen.DataSetName = "DatabaseDataSetLoginScreen";
-            this.databaseDataSetLoginScreen.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // payRollBindingSource
             // 
             this.payRollBindingSource.DataMember = "PayRoll";
-            this.payRollBindingSource.DataSource = this.databaseDataSetLoginScreen;
+   
             // 
             // payRollTableAdapter
             // 
-            this.payRollTableAdapter.ClearBeforeFill = true;
+
             // 
             // LoginScreen
             // 
@@ -122,7 +121,7 @@
             this.Name = "LoginScreen";
             this.Text = "LoginScreen";
  
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetLoginScreen)).EndInit();
+    
             ((System.ComponentModel.ISupportInitialize)(this.payRollBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,9 +136,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
-        private DatabaseDataSetLoginScreen databaseDataSetLoginScreen;
+
         private System.Windows.Forms.BindingSource payRollBindingSource;
-        private DatabaseDataSetLoginScreenTableAdapters.PayRollTableAdapter payRollTableAdapter;
+
     }
 }
 

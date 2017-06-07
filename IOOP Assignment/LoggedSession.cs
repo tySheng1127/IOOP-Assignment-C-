@@ -15,6 +15,7 @@ namespace IOOP_Assignment
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True");
         SqlDataAdapter adapt;
+        DatabaseManagement dm = new DatabaseManagement();
 
         public LoggedSession()
         {
@@ -34,7 +35,7 @@ namespace IOOP_Assignment
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//close this form
         }
 
         
