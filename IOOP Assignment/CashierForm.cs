@@ -47,7 +47,14 @@ namespace IOOP_Assignment
  
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            dm.Logout(cu);
+            DateTime time = DateTime.Now;
+            cmd = new SqlCommand("insert into LoggedSession(Username,LogoutTime) values(@name,@logout)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@name", cu.userName);
+            cmd.Parameters.AddWithValue("@logout", time);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            this.Dispose();
             // LoginScreen ls = new LoginScreen();
             this.Dispose();//back to login screen
             // ls.ShowDialog();

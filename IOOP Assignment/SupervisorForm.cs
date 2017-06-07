@@ -17,6 +17,7 @@ namespace IOOP_Assignment
         SqlCommand cmd;
         Employee cu = new Employee();
         DateTime time = DateTime.Now;
+        DatabaseManagement dm = new DatabaseManagement();
 
         public SupervisorForm(Employee currentuser)
         {
@@ -30,8 +31,7 @@ namespace IOOP_Assignment
        
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            DateTime time = DateTime.Now;
-            
+            DateTime time = DateTime.Now;   
             cmd = new SqlCommand("insert into LoggedSession(Username,LogoutTime) values(@name,@logout)", con);
             con.Open();
             cmd.Parameters.AddWithValue("@name", cu.userName);
@@ -39,8 +39,8 @@ namespace IOOP_Assignment
             cmd.ExecuteNonQuery();
             con.Close();
             this.Dispose();
-            LoginScreen ls = new LoginScreen();
-            ls.ShowForm();
+            //LoginScreen ls = new LoginScreen();
+            //ls.ShowForm();
         }
 
         private void btn_store_Click(object sender, EventArgs e)
