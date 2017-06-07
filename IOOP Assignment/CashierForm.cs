@@ -54,7 +54,6 @@ namespace IOOP_Assignment
             cmd.Parameters.AddWithValue("@logout", time);
             cmd.ExecuteNonQuery();
             con.Close();
-            this.Dispose();
             // LoginScreen ls = new LoginScreen();
             this.Dispose();//back to login screen
             // ls.ShowDialog();
