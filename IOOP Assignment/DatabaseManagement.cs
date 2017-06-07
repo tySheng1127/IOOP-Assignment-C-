@@ -138,7 +138,7 @@ namespace IOOP_Assignment
         public void InsertStock(Stock s)//insert the data into database product table 
         {
 
-            string query = "insert into Product(ProductID,Name,Category,Price,StockAmount,ReorderThreshold) values(@id,@name,@category,@price,@amount,@reorder";
+            string query = "insert into Product(ProductID,Name,Category,Price,StockAmount,ReorderThreshold) values(@id,@name,@category,@price,@amount,@reorder)";
 
             con = OpenConnection();
             cmd = new SqlCommand(query, con);
@@ -183,15 +183,13 @@ namespace IOOP_Assignment
 
         public void DeleteStock(Stock s)//delete the product data from database
         {
-
-            con = OpenConnection();
-            string query = "delete from Product where ProductID=@ID";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@ID", s.Pname);
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
-            con.Close();
-
+                con = OpenConnection();
+                string query = "delete from Product where ProductID=@ID";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ID", s.product);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                con.Close();
         }
 
         public List<Stock> ViewAllStock()//add data from product table to a list 

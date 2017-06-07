@@ -83,23 +83,7 @@ namespace IOOP_Assignment
 
        
         
-        private void btn_Delete_Click(object sender, EventArgs e)
-        {
-            if (txt_ID.Text != "")
-            {
-                //delete the item 
-                dm.DeleteStock(s);
-                MessageBox.Show("Record deleted !");
-                ClearData();
-                DisplayData();
-                
-            }
-            else
-            {// if no item selected , this message will be shown
-                MessageBox.Show("Please select the item to delete !");
-            }
-           
-        }
+     
 
         private void btn_Update_Click_1(object sender, EventArgs e)
         {
@@ -148,6 +132,23 @@ namespace IOOP_Assignment
             }
             string combindedString = string.Join("\n", reorderList.ToArray());
             MessageBox.Show(combindedString, "Items to reorder");
+        }
+
+        private void btn_Delete_Click_1(object sender, EventArgs e)
+        {
+            if (txt_ID.Text != "")
+            {
+                //delete the item 
+                dm.DeleteStock(s);
+                MessageBox.Show("Record deleted !");
+                ClearData();
+                DisplayData();
+
+            }
+            else
+            {// if no item selected , this message will be shown
+                MessageBox.Show("Please select the item to delete !");
+            }
         }
 
     }
